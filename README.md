@@ -5,7 +5,3 @@ A simple library to convert Google search results to JSON output, with an intera
 ## Install
 
 `$ npm install --save -g google-it`
-
-## Example usage
-
-`$ google-it "Latvian unicorn"`
