@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 var request = require('request')
 var fs = require('fs')
 var cheerio = require('cheerio')
