@@ -1,4 +1,4 @@
-# google-it
+# google-it ![Travis-CI](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)
 
 A simple library to convert Google search results to JSON output, with an interactive display option coming in the near future.
 
