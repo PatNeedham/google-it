@@ -1,6 +1,6 @@
 {
   "name": "google-it",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A command line utility to help retrieve, display, and store Google search results",
   "main": "./app.js",
   "bin": "./app.js",
