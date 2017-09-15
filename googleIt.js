@@ -17,17 +17,17 @@ function googleIt(config, cb) {
   }
   request(options, (error, response, body) => {
     if (error) {
-      cb("Error making web request: " + error, null)
+      return cb("Error making web request: " + error, null)
     } else {
       var results = getResults(body)
-      cb(null, results)
-      if (output !== null) {
+      if (output !== undefined) {
         fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
           if (err) {
             console.err('Error writing to file ' + output + ': ' + err)
           }
         })
       }
+      return cb(null, results)
     }
     // // for when 'save' argument is set
     // fs.writeFile('output.html', body, 'utf8', (err) => {

@@ -17,6 +17,7 @@ A simple library to convert Google search results to JSON output, with an intera
 ### Command Line Arguments
 - [ ] *query* - the query that should be sent to the Google search
 - [x] *output* - name of the JSON file to save results to
+- [ ] *no-display* - prevent results from appearing in the terminal output. Should only be used with --output (-o) command when saving results to a file
 - [ ] *save* - name of the html file if you want to save the actual response from the html request (useful for debugging purposes)
 - [x] *limit* - number of search results to be returned
 - [ ] *verbose* - console.log useful statements to show what's currently taking place
