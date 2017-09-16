@@ -18,4 +18,12 @@ describe('Validate output file format', () => {
       )
     });
   });
+  describe('# -n', () => {
+    it('should be invalid because --no-display can only be used with --output', () => {
+      assert.equal(
+        validateCLIArguments({'query': 'blah', 'no-display': true}).valid,
+        false
+      )
+    })
+  })
 });
