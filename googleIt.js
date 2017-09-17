@@ -19,7 +19,7 @@ function googleIt(config, cb) {
     if (error) {
       return cb("Error making web request: " + error, null)
     } else {
-      var results = getResults(body)
+      var results = getResults(body, config['no-display'])
       if (output !== undefined) {
         fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
           if (err) {
@@ -40,7 +40,7 @@ function googleIt(config, cb) {
   });
 }
 
-function getResults(data) {
+function getResults(data, noDisplay) {
   const $ = cheerio.load(data)
   var results = []
 
@@ -71,13 +71,15 @@ function getResults(data) {
     }
   })
 
-  results.forEach((result, i) => {
-    console.log(result.title.blue)
-    console.log(result.link.green)
-    console.log(result.snippet)
-    console.log("\n")
-    // console.log(`#${i}: ${result.title} (${result.link})`)
-  })
+  if (!noDisplay) {
+    results.forEach((result, i) => {
+      console.log(result.title.blue)
+      console.log(result.link.green)
+      console.log(result.snippet)
+      console.log("\n")
+      // console.log(`#${i}: ${result.title} (${result.link})`)
+    })
+  }
   return results
 }
 
