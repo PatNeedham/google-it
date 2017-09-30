@@ -25,6 +25,8 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
-    "mocha": "^3.5.3"
+    "eslint": "^4.8.0",
+    "mocha": "^3.5.3",
+    "prettier": "1.7.3"
   }
 }
