@@ -1,5 +1,7 @@
 # google-it ![Travis-CI](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/PatNeedham/google-it.svg)](https://greenkeeper.io/)
+
 A simple library to convert Google search results to JSON output, with an interactive display option coming in the near future.
 
 ## Install
