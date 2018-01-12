@@ -18,10 +18,7 @@ if (!validation.valid) {
   console.log("Invalid options. Error: " + validation.error)
   spinner.stop()
 } else {
-  googleIt(cli_options, (err, results) => {
-    spinner.stop()
-    if (err) {
-      console.err(err)
-    }
-  })
+  googleIt(cli_options)
+    .then(() => spinner.stop())
+    .catch(err => console.err(err));
 }

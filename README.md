@@ -35,9 +35,20 @@ Prevent display in the terminal, and save results to a JSON file:
 
 - [ ] something like:
 
-```
-var googleIt = require('google-it')
-googleIt('covfefe irony').then(results => {
+```js
+const  googleIt = require('google-it')
+
+googleIt({'query': 'covfefe irony'}).then(results => {
+  // access to results object here
+}).catch(e => {
+  // any possible errors that might have occurred (like no Internet connection)
+})
+
+// with request options
+const options = {
+  'proxy': 'http://localhost:8118'
+};
+googleIt({options, 'query': 'covfefe irony'}).then(results => {
   // access to results object here
 }).catch(e => {
   // any possible errors that might have occurred (like no Internet connection)
