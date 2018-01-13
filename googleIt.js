@@ -35,6 +35,25 @@ function googleIt(config) {
   });
 }
 
+function getSnippet(elem) {
+  return elem['children'].map(child => {
+    if (child.data === null) {
+      return child.children.map(c => c.data)
+    } else {
+      return child.data
+    }
+  }).join('')
+}
+
+function display(results) {
+  results.forEach((result, i) => {
+    console.log(result.title.blue)
+    console.log(result.link.green)
+    console.log(result.snippet)
+    console.log("\n")
+  })
+}
+
 function getResults(data, noDisplay) {
   const $ = cheerio.load(data)
   var results = []
@@ -55,25 +74,13 @@ function getResults(data, noDisplay) {
   // result snippets
   $('div.rc > div.s > div > span.st').map((index, elem) => {
     if (index < results.length) {
-      var snippet = elem['children'].map((child) => {
-        if (child.data === null) {
-          return child.children.map((c) => c.data)
-        } else {
-          return child.data
-        }
-      }).join('')
+      var snippet = getSnippet(elem)
       results[index] = Object.assign(results[index], {snippet: snippet})
     }
   })
 
   if (!noDisplay) {
-    results.forEach((result, i) => {
-      console.log(result.title.blue)
-      console.log(result.link.green)
-      console.log(result.snippet)
-      console.log("\n")
-      // console.log(`#${i}: ${result.title} (${result.link})`)
-    })
+    display(results)
   }
   return results
 }
