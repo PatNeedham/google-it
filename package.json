@@ -1,6 +1,6 @@
 {
   "name": "google-it",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A command line utility to help retrieve, display, and store Google search results",
   "main": "./app.js",
   "bin": "./app.js",
@@ -28,5 +28,7 @@
     "eslint": "^4.8.0",
     "mocha": "^4.1.0",
     "prettier": "1.9.2"
+    "mocha": "^4.1.0",
+    "prettier": "1.10.2"
   }
 }
