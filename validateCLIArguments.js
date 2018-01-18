@@ -1,29 +1,34 @@
+const MISSING_QUERY = 'missing_query'
+const OUTPUT_ARG_MUST_BE_STRING = 'output_arg_must_be_string'
+const MUST_END_IN_JSON = 'must_end_in_json'
+const ONLY_ONE_NOT_BOTH = 'only_one_not_both'
+const VALID = 'valid'
+
+function getError(reason) {
+  return { valid: false, Error: reason }
+}
+
+const validationMap = {
+  [MISSING_QUERY]: getError('Missing querry'),
+  [OUTPUT_ARG_MUST_BE_STRING]: getError('Output argument must be string'),
+  [MUST_END_IN_JSON]: getError('Output argument must end in .json'),
+  [ONLY_ONE_NOT_BOTH]: getError('Can only use --no-display when --output is used as well')
+}
+
 function validateCLIArguments(args) {
+  var result = { valid: true }
+  var error = null
   if (!args['query']) {
-    return {
-      valid: false,
-      'Error': 'Missing query'
-    }
+    error = MISSING_QUERY
   } else if (args['output'] && typeof args['output'] !== 'string') {
-    return {
-      valid: false,
-      'Error': 'output argument must be string'
-    }
+    error = OUTPUT_ARG_MUST_BE_STRING
   } else if (args['output'] && !args['output'].endsWith('.json')) {
-    return {
-      valid: false,
-      'Error': 'output argument must end in .json'
-    }
+    error = MUST_END_IN_JSON
   } else if (args['no-display'] && !args['output']) {
-    return {
-      valid: false,
-      'Error': 'can only use --no-display when --output is used as well'
-    }
-  } else {
-    return {
-      valid: true
-    }
+    error = ONLY_ONE_NOT_BOTH
   }
+
+  return error ? validationMap[error] : result
 }
 
 module.exports = validateCLIArguments
