@@ -20,7 +20,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.1.2",
-    "command-line-args": "^4.0.7",
+    "command-line-args": "^5.0.0",
     "ora": "^1.3.0",
     "request": "^2.81.0"
   },
