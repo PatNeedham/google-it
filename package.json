@@ -2,7 +2,7 @@
   "name": "google-it",
   "version": "1.0.5",
   "description": "A command line utility to help retrieve, display, and store Google search results",
-  "main": "./app.js",
+  "main": "./googleIt.js",
   "bin": "./app.js",
   "repository": {
     "type": "git",
