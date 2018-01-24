@@ -1,6 +1,4 @@
-# google-it ![Travis-CI](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/PatNeedham/google-it.svg)](https://greenkeeper.io/)
+# google-it [![Build Status](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)](https://travis-ci.org/PatNeedham/google-it) [![Greenkeeper badge](https://badges.greenkeeper.io/PatNeedham/google-it.svg)](https://greenkeeper.io/)
 
 A simple library to convert Google search results to JSON output, with an interactive display option coming in the near future.
 
@@ -35,7 +33,7 @@ Prevent display in the terminal, and save results to a JSON file:
 
 ### Programmatic Use in NodeJS environment
 
-- [ ] something like:
+- [x] something like:
 
 ```js
 const  googleIt = require('google-it')
