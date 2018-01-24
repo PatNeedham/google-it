@@ -2,13 +2,42 @@ var request = require('request')
 var fs = require('fs')
 var cheerio = require('cheerio')
 var colors = require('colors')
+const util = require('util')
+const exec = require('child_process').exec
 
 // NOTE:
 // I chose the User-Agent value from http://www.browser-info.net/useragents
 // Not setting one causes Google search to not display results
 
+function saveToFile(output, results) {
+  if (output !== undefined) {
+    fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
+      if (err) {
+        console.err('Error writing to file ' + output + ': ' + err)
+      }
+    })
+  }
+}
+
+function errorTryingToOpen(error, stdout, stderr) {
+  if (error) {
+    console.log(`Error trying to open link in browser: ${error}`)
+    console.log(`stdout: ${stdout}`)
+    console.log(`stderr: ${stderr}`)
+  }
+}
+
+function openInBrowser(open, results) {
+  if (open !== undefined) {
+    // open is the first X number of links to open
+    results.slice(0, open).forEach((result, i) => {
+      exec(`open ${result.link}`, errorTryingToOpen);
+    })
+  }
+}
+
 function googleIt(config) {
-  var {query, numResults, userAgent, output, options = {}} = config
+  var {query, numResults, userAgent, output, open, options = {}} = config
   var defaultOptions = {
     url: `https://www.google.com/search?q=${query}&gws_rd=ssl&num=${numResults || 10}`,
     headers: {
@@ -22,13 +51,8 @@ function googleIt(config) {
         return reject("Error making web request: " + error, null)
       } else {
         var results = getResults(body, config['no-display'])
-        if (output !== undefined) {
-          fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
-            if (err) {
-              console.err('Error writing to file ' + output + ': ' + err)
-            }
-          })
-        }
+        saveToFile(output, results)
+        openInBrowser(open, results)
         return resolve(results);
       }
     });

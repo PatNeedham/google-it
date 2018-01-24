@@ -28,7 +28,11 @@ const optionDefinitions = [
   { name: 'bold-matching-text', alias: 'b', type: Boolean},
 
   // option to limit results to only these two sites
-  { name: 'stackoverflow-github-only', alias: 'X', type: Boolean }
+  { name: 'stackoverflow-github-only', alias: 'X', type: Boolean },
+
+  // option to open the first X number of results directly in browser
+  // (only tested on Mac!). 
+  { name: 'open', alias: 'O', type: Number }
 ]
 
 module.exports = optionDefinitions
