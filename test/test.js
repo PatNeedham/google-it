@@ -1,5 +1,7 @@
 var assert = require('assert')
+var googleIt = require('../googleIt')
 var validateCLIArguments = require('../validateCLIArguments')
+var optionDefinitions = require('../optionDefinitions')
 
 describe('Validate output file format', () => {
   describe('# -o 12345', () => {
@@ -27,3 +29,18 @@ describe('Validate output file format', () => {
     })
   })
 });
+
+describe('Ensure programmatic access works', () => {
+  it('Should have results that exist', (done) => {
+    var options = {
+      "query": "Statue of liberty",
+      "no-display": true
+    }
+    googleIt(options).then(results => {
+      assert.notEqual(results, null, "Results must exist")
+      done()
+    }).catch(err => {
+      done(err)
+    })
+  })
+})
