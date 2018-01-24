@@ -15,8 +15,7 @@ const validationMap = {
   [ONLY_ONE_NOT_BOTH]: getError('Can only use --no-display when --output is used as well')
 }
 
-function validateCLIArguments(args) {
-  var result = { valid: true }
+function getPotentialError(args) {
   var error = null
   if (!args['query']) {
     error = MISSING_QUERY
@@ -27,8 +26,13 @@ function validateCLIArguments(args) {
   } else if (args['no-display'] && !args['output']) {
     error = ONLY_ONE_NOT_BOTH
   }
+  return validationMap[error]
+}
 
-  return error ? validationMap[error] : result
+function validateCLIArguments(args) {
+  var result = { valid: true }
+  var error = getPotentialError(args)
+  return error ? error : result
 }
 
 module.exports = validateCLIArguments
