@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for google-it/googleIt.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">google-it/</a> googleIt.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>42/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>11/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.19% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>42/59</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var request = require('request')
+var fs = require('fs')
+var cheerio = require('cheerio')
+var colors = require('colors')
+const util = require('util')
+const exec = require('child_process').exec
+&nbsp;
+// NOTE:
+// I chose the User-Agent value from http://www.browser-info.net/useragents
+// Not setting one causes Google search to not display results
+&nbsp;
+function saveToFile(output, results) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (output !== undefined) {
+<span class="cstat-no" title="statement not covered" >    fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (err) {</span>
+<span class="cstat-no" title="statement not covered" >        console.err('Error writing to file ' + output + ': ' + err)</span>
+      }
+    })
+  }
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function errorTryingToOpen(error, stdout, stderr) {</span>
+<span class="cstat-no" title="statement not covered" >  if (error) {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`Error trying to open link in browser: ${error}`)</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`stdout: ${stdout}`)</span>
+<span class="cstat-no" title="statement not covered" >    console.log(`stderr: ${stderr}`)</span>
+  }
+}
+&nbsp;
+function openInBrowser(open, results) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (open !== undefined) {
+    // open is the first X number of links to open
+<span class="cstat-no" title="statement not covered" >    results.slice(0, open).forEach((result, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      exec(`open ${result.link}`, errorTryingToOpen);</span>
+    })
+  }
+}
+&nbsp;
+function googleIt(config) {
+  var {query, numResults, userAgent, output, open, options = {}} = config
+  var defaultOptions = {
+    url: `https://www.google.com/search?q=${query}&amp;gws_rd=ssl&amp;num=${numResults || 10}`,
+    headers: {
+      'User-Agent': (userAgent || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0')
+    }
+  };
+&nbsp;
+  return new Promise((resolve, reject) =&gt; {
+    request(Object.assign({}, defaultOptions, options), (error, response, body) =&gt; {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {
+<span class="cstat-no" title="statement not covered" >        return reject("Error making web request: " + error, null)</span>
+      } else {
+        var results = getResults(body, config['no-display'])
+        saveToFile(output, results)
+        openInBrowser(open, results)
+        return resolve(results);
+      }
+    });
+  });
+}
+&nbsp;
+function getSnippet(elem) {
+  return elem['children'].map(child =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (child.data === null) {
+<span class="cstat-no" title="statement not covered" >      return child.children.map(c =&gt; <span class="cstat-no" title="statement not covered" >c.data)</span></span>
+    } else {
+      return child.data
+    }
+  }).join('')
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function display(results) {</span>
+<span class="cstat-no" title="statement not covered" >  results.forEach((result, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    console.log(result.title.blue)</span>
+<span class="cstat-no" title="statement not covered" >    console.log(result.link.green)</span>
+<span class="cstat-no" title="statement not covered" >    console.log(result.snippet)</span>
+<span class="cstat-no" title="statement not covered" >    console.log("\n")</span>
+  })
+}
+&nbsp;
+function getResults(data, noDisplay) {
+  const $ = cheerio.load(data)
+  var results = []
+&nbsp;
+  // result titles
+  var titles = $('div.rc &gt; h3.r &gt; a').contents()
+  titles.each((index, elem) =&gt; {
+    results.push({"title": elem.data})
+  })
+&nbsp;
+  // result links
+  $('div.rc &gt; h3.r &gt; a').map((index, elem) =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (index &lt; results.length) {
+      results[index] = Object.assign(results[index], {"link": elem['attribs']['href']})
+    }
+  })
+&nbsp;
+  // result snippets
+  $('div.rc &gt; div.s &gt; div &gt; span.st').map((index, elem) =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (index &lt; results.length) {
+      var snippet = getSnippet(elem)
+      results[index] = Object.assign(results[index], {snippet: snippet})
+    }
+  })
+&nbsp;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!noDisplay) {
+<span class="cstat-no" title="statement not covered" >    display(results)</span>
+  }
+  return results
+}
+&nbsp;
+module.exports = googleIt
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jan 24 2018 14:40:50 GMT-0500 (EST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

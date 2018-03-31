@@ -1,4 +1,4 @@
-# google-it [![Build Status](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)](https://travis-ci.org/PatNeedham/google-it) [![Greenkeeper badge](https://badges.greenkeeper.io/PatNeedham/google-it.svg)](https://greenkeeper.io/)
+# google-it [![Build Status](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)](https://travis-ci.org/PatNeedham/google-it) [![Greenkeeper badge](https://badges.greenkeeper.io/PatNeedham/google-it.svg)](https://greenkeeper.io/) [![npm version](https://badge.fury.io/js/google-it.svg)](https://badge.fury.io/js/google-it)
 
 A simple library to convert Google search results to JSON output, with an interactive display option coming in the near future.
 
@@ -18,7 +18,9 @@ Prevent display in the terminal, and save results to a JSON file:
 
 ![GIF of google-it w/o display, results saved to file](google-it-output-no-display.gif?raw=true "google-it")
 
-## Upcoming Features Roadmap
+`$ google-it --query="open whisper systems" -O 5`
+
+![GIF of opening-in-browser](open-results-in-browser.gif?raw=true "google-it-to-browser")
 
 ### Command Line Arguments
 - [x] *query* - the query that should be sent to the Google search
@@ -30,6 +32,7 @@ Prevent display in the terminal, and save results to a JSON file:
 - [ ] *interactive* - once results are returned, show them in an interactive prompt where user can scroll through them
 - [ ] *bold-matching-text* - only takes effect when interactive (-i) flag is set as well, will bold test in results that matched the query
 - [ ] *stackoverflow-github-only* - option to limit results to only these two sites
+- [x] *open* - opens the first X number of results in the browser after finishing query
 
 ### Programmatic Use in NodeJS environment
 
