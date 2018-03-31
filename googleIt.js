@@ -9,6 +9,12 @@ const exec = require('child_process').exec
 // I chose the User-Agent value from http://www.browser-info.net/useragents
 // Not setting one causes Google search to not display results
 
+function logIt(message, disableConsole) {
+  if (!disableConsole) {
+    console.log(message)
+  }
+}
+
 function saveToFile(output, results) {
   if (output !== undefined) {
     fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
@@ -50,7 +56,7 @@ function googleIt(config) {
       if (error) {
         return reject("Error making web request: " + error, null)
       } else {
-        var results = getResults(body, config['no-display'])
+        var results = getResults(body, config['no-display'], config['disableConsole'])
         saveToFile(output, results)
         openInBrowser(open, results)
         return resolve(results);
@@ -69,16 +75,16 @@ function getSnippet(elem) {
   }).join('')
 }
 
-function display(results) {
+function display(results, disableConsole) {
   results.forEach((result, i) => {
-    console.log(result.title.blue)
-    console.log(result.link.green)
-    console.log(result.snippet)
-    console.log("\n")
+    logIt(result.title.blue, disableConsole)
+    logIt(result.link.green, disableConsole)
+    logIt(result.snippet, disableConsole)
+    logIt("\n", disableConsole)
   })
 }
 
-function getResults(data, noDisplay) {
+function getResults(data, noDisplay, disableConsole) {
   const $ = cheerio.load(data)
   var results = []
 
@@ -104,7 +110,7 @@ function getResults(data, noDisplay) {
   })
 
   if (!noDisplay) {
-    display(results)
+    display(results, disableConsole)
   }
   return results
 }
