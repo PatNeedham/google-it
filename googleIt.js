@@ -43,9 +43,9 @@ function openInBrowser(open, results) {
 }
 
 function googleIt(config) {
-  var {query, numResults, userAgent, output, open, options = {}} = config
+  var {query, limit, userAgent, output, open, options = {}} = config
   var defaultOptions = {
-    url: `https://www.google.com/search?q=${query}&gws_rd=ssl&num=${numResults || 10}`,
+    url: `https://www.google.com/search?q=${query}&gws_rd=ssl&num=${limit || 10}`,
     headers: {
       'User-Agent': (userAgent || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0')
     }
