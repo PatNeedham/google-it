@@ -8,13 +8,13 @@ A simple library to convert Google search results to JSON output, with an intera
 
 ## Example Usage
 
-`$ google-it "Latvian unicorn"`
+`$ google-it --query="Latvian unicorn"`
 
 ![GIF of google-it](google-it-demo.gif?raw=true "google-it")
 
 Prevent display in the terminal, and save results to a JSON file:
 
-`$ google-it "PWAs with react-router and redux" -o results.json -n`
+`$ google-it --query="PWAs with react-router and redux" -o results.json -n`
 
 ![GIF of google-it w/o display, results saved to file](google-it-output-no-display.gif?raw=true "google-it")
 
@@ -22,12 +22,17 @@ Prevent display in the terminal, and save results to a JSON file:
 
 ![GIF of opening-in-browser](open-results-in-browser.gif?raw=true "google-it-to-browser")
 
+`$ google-it --query="mechanical turk" --only-urls`
+
+![Screenshot of only-urls option](onlyUrls.png?raw=true "onlyUrls")
+
 ### Command Line Arguments
 - [x] *query* - the query that should be sent to the Google search
 - [x] *output* - name of the JSON file to save results to
 - [x] *no-display* - prevent results from appearing in the terminal output. Should only be used with --output (-o) command when saving results to a file
 - [ ] *save* - name of the html file if you want to save the actual response from the html request (useful for debugging purposes)
 - [x] *limit* - number of search results to be returned
+- [x] *only-urls* - only display the URLs, instead of the titles and snippets
 - [ ] *verbose* - console.log useful statements to show what's currently taking place
 - [ ] *interactive* - once results are returned, show them in an interactive prompt where user can scroll through them
 - [ ] *bold-matching-text* - only takes effect when interactive (-i) flag is set as well, will bold test in results that matched the query

@@ -56,7 +56,7 @@ function googleIt(config) {
       if (error) {
         return reject("Error making web request: " + error, null)
       } else {
-        var results = getResults(body, config['no-display'], config['disableConsole'])
+        var results = getResults(body, config['no-display'], config['disableConsole'], config['only-urls'])
         saveToFile(output, results)
         openInBrowser(open, results)
         return resolve(results);
@@ -75,16 +75,21 @@ function getSnippet(elem) {
   }).join('')
 }
 
-function display(results, disableConsole) {
+function display(results, disableConsole, onlyUrls) {
+  logIt("\n", disableConsole)
   results.forEach((result, i) => {
-    logIt(result.title.blue, disableConsole)
-    logIt(result.link.green, disableConsole)
-    logIt(result.snippet, disableConsole)
-    logIt("\n", disableConsole)
+    if (onlyUrls) {
+      logIt(result.link.green, disableConsole)
+    } else {
+      logIt(result.title.blue, disableConsole)
+      logIt(result.link.green, disableConsole)
+      logIt(result.snippet, disableConsole)
+      logIt("\n", disableConsole)
+    }
   })
 }
 
-function getResults(data, noDisplay, disableConsole) {
+function getResults(data, noDisplay, disableConsole, onlyUrls) {
   const $ = cheerio.load(data)
   var results = []
 
@@ -108,9 +113,12 @@ function getResults(data, noDisplay, disableConsole) {
       results[index] = Object.assign(results[index], {snippet: snippet})
     }
   })
-
+  
+  if (onlyUrls) {
+    results = results.map(r => ({link: r.link}))
+  }
   if (!noDisplay) {
-    display(results, disableConsole)
+    display(results, disableConsole, onlyUrls)
   }
   return results
 }

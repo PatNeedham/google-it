@@ -23,6 +23,9 @@ const optionDefinitions = [
   // can scroll through them
   { name: 'interactive', alias: 'i', type: Boolean },
 
+  // only display the URLs, instead of the titles and snippets
+  { name: 'only-urls', alias: 'u', type: Boolean },
+
   // only takes effect when interactive (-i) flag is set as well, will bold
   // test in results that matched the query
   { name: 'bold-matching-text', alias: 'b', type: Boolean},

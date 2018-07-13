@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const ora = require('ora')
-const spinner = ora({text: 'Loading results', color: 'cyan'}).start();
+const theSpinner = ora({text: 'Loading results', color: 'cyan'}).start()
 const commandLineArgs = require('command-line-args')
 const validateCLIArguments = require('./validateCLIArguments')
 const googleIt = require('./googleIt')
@@ -16,9 +16,12 @@ var validation = validateCLIArguments(cli_options)
 
 if (!validation.valid) {
   console.log("Invalid options. Error: " + validation.error)
-  spinner.stop()
+  theSpinner.clear()
 } else {
   googleIt(cli_options)
-    .then(() => spinner.stop())
-    .catch(err => console.err(err));
+    .then(() => {
+      theSpinner.stop()
+      theSpinner.clear()
+    })
+    .catch(err => console.err(err))
 }
