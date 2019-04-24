@@ -94,20 +94,20 @@ function getResults(data, noDisplay, disableConsole, onlyUrls) {
   var results = []
 
   // result titles
-  var titles = $('div.rc > h3.r > a').contents()
+  var titles = $('div.rc > div.r > a > h3').contents()
   titles.each((index, elem) => {
     results.push({"title": elem.data})
   })
 
   // result links
-  $('div.rc > h3.r > a').map((index, elem) => {
+  $('div.rc > div.r > a').map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {"link": elem['attribs']['href']})
     }
   })
 
   // result snippets
-  $('div.rc > div.s > div > span.st').map((index, elem) => {
+  $('div.rc > div.s > span.st').map((index, elem) => {
     if (index < results.length) {
       var snippet = getSnippet(elem)
       results[index] = Object.assign(results[index], {snippet: snippet})
