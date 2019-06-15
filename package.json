@@ -22,11 +22,11 @@
     "colors": "^1.1.2",
     "command-line-args": "^5.0.0",
     "ora": "^3.0.0",
-    "request": "^2.81.0"
+    "request": "^2.88.0"
   },
   "devDependencies": {
-    "codecov": "^3.0.0",
-    "eslint": "^5.0.0",
+    "codecov": "^3.3.0",
+    "eslint": "^5.16.0",
     "mocha": "^5.0.0",
     "prettier": "1.14.3"
   }

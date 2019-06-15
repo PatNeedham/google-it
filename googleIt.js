@@ -45,7 +45,11 @@ function openInBrowser(open, results) {
 function googleIt(config) {
   var {query, limit, userAgent, output, open, options = {}} = config
   var defaultOptions = {
-    url: `https://www.google.com/search?q=${query}&gws_rd=ssl&num=${limit || 10}`,
+    url: 'https://www.google.com/search',
+    qs: {
+      q: query,
+      num: limit || 10
+    },
     headers: {
       'User-Agent': (userAgent || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0')
     }
@@ -55,12 +59,16 @@ function googleIt(config) {
     request(Object.assign({}, defaultOptions, options), (error, response, body) => {
       if (error) {
         return reject("Error making web request: " + error, null)
-      } else {
-        var results = getResults(body, config['no-display'], config['disableConsole'], config['only-urls'])
-        saveToFile(output, results)
-        openInBrowser(open, results)
-        return resolve(results);
       }
+
+      if (response.statusCode !== 200) {
+        return reject(cheerio.load(response.body).text())
+      }
+
+      var results = getResults(body, config['no-display'], config['disableConsole'], config['only-urls'])
+      saveToFile(output, results)
+      openInBrowser(open, results)
+      return resolve(results);
     });
   });
 }
@@ -94,20 +102,20 @@ function getResults(data, noDisplay, disableConsole, onlyUrls) {
   var results = []
 
   // result titles
-  var titles = $('div.rc > h3.r > a').contents()
+  var titles = $('div.rc > div.r > a > h3').contents()
   titles.each((index, elem) => {
     results.push({"title": elem.data})
   })
 
   // result links
-  $('div.rc > h3.r > a').map((index, elem) => {
+  $('div.rc > div.r > a').map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {"link": elem['attribs']['href']})
     }
   })
 
   // result snippets
-  $('div.rc > div.s > div > span.st').map((index, elem) => {
+  $('div.rc > div.s > span.st').map((index, elem) => {
     if (index < results.length) {
       var snippet = getSnippet(elem)
       results[index] = Object.assign(results[index], {snippet: snippet})
