@@ -5,18 +5,11 @@
 const ora = require('ora');
 
 const theSpinner = ora({ text: 'Loading results', color: 'cyan' }).start();
-const commandLineArgs = require('command-line-args');
+const parseCommandLineArgs = require('./parseCommandLineArgs');
 const validateCLIArguments = require('./validateCLIArguments');
 const googleIt = require('./googleIt');
-const optionDefinitions = require('./optionDefinitions');
 
-const cliOptions = commandLineArgs(optionDefinitions);
-
-// first arg is 'node', second is /path/to/file/app.js, third is whatever follows afterward
-if (process.argv.length > 2) {
-  // eslint-disable-next-line prefer-destructuring
-  cliOptions.query = process.argv[2];
-}
+const cliOptions = parseCommandLineArgs(process.argv);
 const validation = validateCLIArguments(cliOptions);
 
 if (!validation.valid) {
