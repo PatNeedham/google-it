@@ -7,7 +7,7 @@ const optionDefinitions = [
 
   // prevent results from appearing in the terminal output. Should only be used
   // with --output (-o) command when saving results to a file
-  { name: 'no-display', alias: 'n', type: Boolean},
+  { name: 'no-display', alias: 'n', type: Boolean },
 
   // name of the html file if you want to save the actual response from the
   // html request
@@ -28,14 +28,14 @@ const optionDefinitions = [
 
   // only takes effect when interactive (-i) flag is set as well, will bold
   // test in results that matched the query
-  { name: 'bold-matching-text', alias: 'b', type: Boolean},
+  { name: 'bold-matching-text', alias: 'b', type: Boolean },
 
   // option to limit results to only these two sites
   { name: 'stackoverflow-github-only', alias: 'X', type: Boolean },
 
   // option to open the first X number of results directly in browser
-  // (only tested on Mac!). 
-  { name: 'open', alias: 'O', type: Number }
-]
+  // (only tested on Mac!).
+  { name: 'open', alias: 'O', type: Number },
+];
 
-module.exports = optionDefinitions
+module.exports = optionDefinitions;

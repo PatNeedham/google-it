@@ -1,11 +1,12 @@
+/* eslint-disable no-console */
 const googleIt = require('./googleIt');
 
-async function sandbox () {
+async function sandbox() {
   try {
     const options = {
-      'proxy': 'http://localhost:8118'
+      proxy: 'http://localhost:8118',
     };
-    const results = await googleIt({options, 'query': 'covfefe irony'});
+    const results = await googleIt({ options, query: 'covfefe irony' });
 
     console.log(results);
   } catch (e) {

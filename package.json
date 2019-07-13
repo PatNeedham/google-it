@@ -9,6 +9,7 @@
     "url": "https://github.com/PatNeedham/google-it.git"
   },
   "scripts": {
+    "lint": "./node_modules/.bin/eslint --ext .js --ignore-path .eslintignore '*.js'",
     "test": "mocha test/**/*.js"
   },
   "keywords": [
@@ -27,6 +28,7 @@
   "devDependencies": {
     "codecov": "^3.3.0",
     "eslint": "^5.16.0",
+    "eslint-config-amex": "^10.1.0",
     "mocha": "^5.0.0",
     "prettier": "1.14.3"
   }
