@@ -1,6 +1,6 @@
 const assert = require('assert');
-const googleIt = require('../googleIt');
-const validateCLIArguments = require('../validateCLIArguments');
+const googleIt = require('../src/googleIt');
+const validateCLIArguments = require('../src/validateCLIArguments');
 
 describe('Validate output file format', () => {
   describe('# -o 12345', () => {
