@@ -10,21 +10,21 @@ A simple library to convert Google search results to JSON output, with an intera
 
 `$ google-it --query="Latvian unicorn"`
 
-![GIF of google-it](google-it-demo.gif?raw=true "google-it")
+![GIF of google-it](./images/google-it-demo.gif?raw=true "google-it")
 
 Prevent display in the terminal, and save results to a JSON file:
 
 `$ google-it --query="PWAs with react-router and redux" -o results.json -n`
 
-![GIF of google-it w/o display, results saved to file](google-it-output-no-display.gif?raw=true "google-it")
+![GIF of google-it w/o display, results saved to file](./images/google-it-output-no-display.gif?raw=true "google-it")
 
 `$ google-it --query="open whisper systems" -O 5`
 
-![GIF of opening-in-browser](open-results-in-browser.gif?raw=true "google-it-to-browser")
+![GIF of opening-in-browser](./images/open-results-in-browser.gif?raw=true "google-it-to-browser")
 
 `$ google-it --query="mechanical turk" --only-urls`
 
-![Screenshot of only-urls option](onlyUrls.png?raw=true "onlyUrls")
+![Screenshot of only-urls option](./images/onlyUrls.png?raw=true "onlyUrls")
 
 ### Command Line Arguments
 - [x] *query* - the query that should be sent to the Google search
