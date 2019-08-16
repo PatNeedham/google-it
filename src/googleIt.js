@@ -59,10 +59,14 @@ function display(results, disableConsole, onlyUrls) {
     if (onlyUrls) {
       logIt(result.link.green, disableConsole);
     } else {
-      logIt(result.title.blue, disableConsole);
-      logIt(result.link.green, disableConsole);
-      logIt(result.snippet, disableConsole);
-      logIt('\n', disableConsole);
+      if (result.title) {
+        logIt(result.title.blue, disableConsole);
+        logIt(result.link.green, disableConsole);
+        logIt(result.snippet, disableConsole);
+        logIt('\n', disableConsole);
+      } else {
+        logIt('Result title is undefined.');
+      }
     }
   });
 }
