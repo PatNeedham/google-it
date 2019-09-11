@@ -95,7 +95,7 @@ function getResults({ data, noDisplay, disableConsole, onlyUrls }) {
   });
 
   // result snippets
-  $('div.rc > div.s > span.st').map((index, elem) => {
+  $('div.rc > div.s > div > span.st').map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {
         snippet: getSnippet(elem)
