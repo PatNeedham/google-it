@@ -26,7 +26,6 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "codecov": "^3.3.0",
     "eslint": "^5.16.0",
     "eslint-config-amex": "^10.1.0",
     "mocha": "^5.0.0",
