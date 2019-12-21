@@ -11,7 +11,6 @@ const googleIt = require('./googleIt');
 
 const cliOptions = parseCommandLineArgs(process.argv);
 const validation = validateCLIArguments(cliOptions);
-
 if (!validation.valid) {
   console.log(`Invalid options. Error:  ${validation.error}`);
   theSpinner.clear();
@@ -21,5 +20,5 @@ if (!validation.valid) {
       theSpinner.stop();
       theSpinner.clear();
     })
-    .catch(err => console.err(err));
+    .catch(console.error);
 }

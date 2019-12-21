@@ -36,6 +36,13 @@ const optionDefinitions = [
   // option to open the first X number of results directly in browser
   // (only tested on Mac!).
   { name: 'open', alias: 'O', type: Number },
+
+  // option to save the html file of the Google search result page
+  { name: 'htmlFileOutputPath', alias: 'h', type: String },
+
+  // option to use specific HTML file to parse, one that might exist locally
+  // for example, main for debugging purposes
+  { name: 'fromFile', alias: 'f', type: String },
 ];
 
 module.exports = optionDefinitions;

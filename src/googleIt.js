@@ -3,11 +3,15 @@
 const request = require('request');
 const fs = require('fs');
 const cheerio = require('cheerio');
+require('colors');
 const { exec } = require('child_process');
 
-// NOTE:
-// I chose the User-Agent value from http://www.browser-info.net/useragents
-// Not setting one causes Google search to not display results
+const {
+  getDefaultRequestOptions,
+  titleSelector,
+  linkSelector,
+  snippetSelector,
+} = require('./utils');
 
 function logIt(message, disableConsole) {
   if (!disableConsole) {
@@ -21,6 +25,14 @@ function saveToFile(output, results) {
       if (err) {
         console.err(`Error writing to file ${output}: ${err}`);
       }
+    });
+  }
+}
+
+function saveResponse(response, htmlFileOutputPath) {
+  if (htmlFileOutputPath) {
+    fs.writeFile(htmlFileOutputPath, response.body, () => {
+      console.log(`Html file saved to ${htmlFileOutputPath}`);
     });
   }
 }
@@ -45,7 +57,7 @@ function openInBrowser(open, results) {
 function getSnippet(elem) {
   return elem.children
     .map((child) => {
-      if (child.data === null) {
+      if (!child.data) {
         return child.children.map(c => c.data);
       }
       return child.data;
@@ -75,8 +87,7 @@ function getResults({
   const $ = cheerio.load(data);
   let results = [];
 
-  // result titles
-  const titles = $('div.rc > div.r > a > h3').contents();
+  const titles = $(titleSelector).contents();
   titles.each((index, elem) => {
     if (elem.data) {
       results.push({ title: elem.data });
@@ -85,8 +96,7 @@ function getResults({
     }
   });
 
-  // result links
-  $('div.rc > div.r > a').map((index, elem) => {
+  $(linkSelector).map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {
         link: elem.attribs.href,
@@ -94,8 +104,7 @@ function getResults({
     }
   });
 
-  // result snippets
-  $('div.rc > div.s > div > span.st').map((index, elem) => {
+  $(snippetSelector).map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {
         snippet: getSnippet(elem),
@@ -112,27 +121,20 @@ function getResults({
   return results;
 }
 
-function googleIt(config) {
-  const {
-    query, limit, userAgent, output, open, options = {},
-  } = config;
-  const defaultOptions = {
-    url: 'https://www.google.com/search',
-    qs: {
-      q: query,
-      num: limit || 10,
-    },
-    headers: {
-      'User-Agent':
-        userAgent
-        || 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0',
-    },
-  };
-
+function getResponseBody({
+  fromFile: filePath, options, htmlFileOutputPath, query, limit, userAgent,
+}) {
   return new Promise((resolve, reject) => {
-    request(
-      Object.assign({}, defaultOptions, options),
-      (error, response, body) => {
+    if (filePath) {
+      fs.readFile(filePath, (err, data) => {
+        if (err) {
+          return reject(new Error(`Erorr accessing file at ${filePath}: ${err}`));
+        }
+        return resolve(data);
+      });
+    } else {
+      const defaultOptions = getDefaultRequestOptions(limit, query, userAgent);
+      request(Object.assign({}, defaultOptions, options), (error, response, body) => {
         if (error) {
           // eslint-disable-next-line prefer-promise-reject-errors
           return reject(`Error making web request: ${error}`, null);
@@ -141,18 +143,31 @@ function googleIt(config) {
         if (response.statusCode !== 200) {
           return reject(cheerio.load(response.body).text());
         }
+        saveResponse(response, htmlFileOutputPath);
+        return resolve(body);
+      });
+    }
+  });
+}
 
-        const results = getResults({
-          data: body,
-          noDisplay: config['no-display'],
-          disableConsole: config.disableConsole,
-          onlyUrls: config['only-urls'],
-        });
-        saveToFile(output, results);
-        openInBrowser(open, results);
-        return resolve(results);
-      }
-    );
+function googleIt(config) {
+  const {
+    query, limit, userAgent, output, open, options = {}, htmlFileOutputPath, fromFile,
+  } = config;
+  return new Promise((resolve, reject) => {
+    getResponseBody({
+      fromFile, options, htmlFileOutputPath, query, limit, userAgent,
+    }).then((body) => {
+      const results = getResults({
+        data: body,
+        noDisplay: config['no-display'],
+        disableConsole: config.disableConsole,
+        onlyUrls: config['only-urls'],
+      });
+      saveToFile(output, results);
+      openInBrowser(open, results);
+      return resolve(results);
+    }).catch(reject);
   });
 }
 

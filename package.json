@@ -20,7 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "colors": "^1.1.2",
+    "colors": "^1.4.0",
     "command-line-args": "^5.0.0",
     "ora": "^3.0.0",
     "request": "^2.88.0"
