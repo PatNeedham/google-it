@@ -17,9 +17,9 @@ const getDefaultRequestOptions = (limit, query, userAgent) => ({
   },
 });
 
-const titleSelector = 'div > div > div > div.r > a > h3 > div';
+const titleSelector = '#rso > div > div > div > div > div > div.r > a > h3';
 const linkSelector = 'div.rc > div.r > a';
-const snippetSelector = 'div > div > div > div.s > div > a > span';
+const snippetSelector = '#rso > div > div > div > div > div > div.s > div > span';
 
 module.exports = {
   defaultUserAgent,
