@@ -22,14 +22,14 @@
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.4.0",
     "command-line-args": "^5.0.0",
-    "ora": "^3.0.0",
+    "ora": "^4.0.3",
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-amex": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-amex": "^11.1.0",
     "jest": "^24.9.0",
-    "mocha": "^5.0.0",
-    "prettier": "1.14.3"
+    "mocha": "^6.2.2",
+    "prettier": "1.19.1"
   }
 }
