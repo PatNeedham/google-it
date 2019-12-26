@@ -117,10 +117,6 @@ function getResponseBody({
         if (error) {
           reject(new Error(`Error making web request: ${error}`));
         }
-
-        if (response.statusCode !== 200) {
-          reject(cheerio.load(response.body).text());
-        }
         saveResponse(response, htmlFileOutputPath);
         resolve(body);
       });
