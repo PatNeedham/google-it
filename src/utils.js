@@ -2,6 +2,12 @@
 
 const fs = require('fs');
 
+const {
+  GOOGLE_IT_TITLE_SELECTOR,
+  GOOGLE_IT_LINK_SELECTOR,
+  GOOGLE_IT_SNIPPET_SELECTOR,
+} = process.env;
+
 // NOTE:
 // I chose the User-Agent value from http://www.browser-info.net/useragents
 // Not setting one causes Google search to not display results
@@ -23,6 +29,18 @@ const getDefaultRequestOptions = (limit, query, userAgent) => ({
 const titleSelector = '#rso > div > div > div > div > div > div.r > a > h3';
 const linkSelector = 'div.rc > div.r > a';
 const snippetSelector = '#rso > div > div > div > div > div > div.s > div > span';
+
+const getTitleSelector = passedValue => (
+  passedValue || GOOGLE_IT_TITLE_SELECTOR || titleSelector
+);
+
+const getLinkSelector = passedValue => (
+  passedValue || GOOGLE_IT_LINK_SELECTOR || linkSelector
+);
+
+const getSnippetSelector = passedValue => (
+  passedValue || GOOGLE_IT_SNIPPET_SELECTOR || snippetSelector
+);
 
 const logIt = (message, disableConsole) => {
   if (!disableConsole) {
@@ -52,9 +70,9 @@ module.exports = {
   defaultUserAgent,
   defaultLimit,
   getDefaultRequestOptions,
-  titleSelector,
-  linkSelector,
-  snippetSelector,
+  getTitleSelector,
+  getLinkSelector,
+  getSnippetSelector,
   logIt,
   saveToFile,
   saveResponse,

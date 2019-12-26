@@ -43,6 +43,11 @@ const optionDefinitions = [
   // option to use specific HTML file to parse, one that might exist locally
   // for example, main for debugging purposes
   { name: 'fromFile', alias: 'f', type: String },
+
+  // override the hard-coded selectors defined inside /src/utils.js
+  { name: 'titleSelector', type: String },
+  { name: 'linkSelector', type: String },
+  { name: 'snippetSelector', type: String },
 ];
 
 module.exports = optionDefinitions;

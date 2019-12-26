@@ -8,9 +8,9 @@ const { exec } = require('child_process');
 
 const {
   getDefaultRequestOptions,
-  titleSelector,
-  linkSelector,
-  snippetSelector,
+  getTitleSelector,
+  getLinkSelector,
+  getSnippetSelector,
   logIt,
   saveToFile,
   saveResponse,
@@ -61,12 +61,18 @@ function display(results, disableConsole, onlyUrls) {
 }
 
 function getResults({
-  data, noDisplay, disableConsole, onlyUrls,
+  data,
+  noDisplay,
+  disableConsole,
+  onlyUrls,
+  titleSelector,
+  linkSelector,
+  snippetSelector,
 }) {
   const $ = cheerio.load(data);
   let results = [];
 
-  const titles = $(titleSelector).contents();
+  const titles = $(getTitleSelector(titleSelector)).contents();
   titles.each((index, elem) => {
     if (elem.data) {
       results.push({ title: elem.data });
@@ -75,7 +81,7 @@ function getResults({
     }
   });
 
-  $(linkSelector).map((index, elem) => {
+  $(getLinkSelector(linkSelector)).map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {
         link: elem.attribs.href,
@@ -83,7 +89,7 @@ function getResults({
     }
   });
 
-  $(snippetSelector).map((index, elem) => {
+  $(getSnippetSelector(snippetSelector)).map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {
         snippet: getSnippet(elem),
@@ -129,6 +135,9 @@ function googleIt(config) {
     output,
     open,
     returnHtmlBody,
+    titleSelector,
+    linkSelector,
+    snippetSelector,
   } = config;
   return new Promise((resolve, reject) => {
     getResponseBody(config).then((body) => {
@@ -137,6 +146,9 @@ function googleIt(config) {
         noDisplay: config['no-display'],
         disableConsole: config.disableConsole,
         onlyUrls: config['only-urls'],
+        titleSelector,
+        linkSelector,
+        snippetSelector,
       });
       saveToFile(output, results);
       openInBrowser(open, results);
