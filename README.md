@@ -1,4 +1,4 @@
-# google-it [![Build Status](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)](https://travis-ci.org/PatNeedham/google-it) [![npm version](https://badge.fury.io/js/google-it.svg)](https://www.npmjs.com/package/google-it)
+# google-it [![Build Status](https://travis-ci.org/PatNeedham/google-it.svg?branch=master)](https://travis-ci.org/PatNeedham/google-it) [![npm version](https://badge.fury.io/js/google-it.svg)](https://www.npmjs.com/package/google-it) [![Greenkeeper badge](https://badges.greenkeeper.io/PatNeedham/google-it.svg)](https://greenkeeper.io/)
 
 A simple library to convert Google search results to JSON output, with an interactive display option coming in the near future.
 
