@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+
+const fs = require('fs');
 
 // NOTE:
 // I chose the User-Agent value from http://www.browser-info.net/useragents
@@ -21,6 +24,30 @@ const titleSelector = '#rso > div > div > div > div > div > div.r > a > h3';
 const linkSelector = 'div.rc > div.r > a';
 const snippetSelector = '#rso > div > div > div > div > div > div.s > div > span';
 
+const logIt = (message, disableConsole) => {
+  if (!disableConsole) {
+    console.log(message);
+  }
+};
+
+const saveToFile = (output, results) => {
+  if (output !== undefined) {
+    fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
+      if (err) {
+        console.err(`Error writing to file ${output}: ${err}`);
+      }
+    });
+  }
+};
+
+const saveResponse = (response, htmlFileOutputPath) => {
+  if (htmlFileOutputPath) {
+    fs.writeFile(htmlFileOutputPath, response.body, () => {
+      console.log(`Html file saved to ${htmlFileOutputPath}`);
+    });
+  }
+};
+
 module.exports = {
   defaultUserAgent,
   defaultLimit,
@@ -28,4 +55,7 @@ module.exports = {
   titleSelector,
   linkSelector,
   snippetSelector,
+  logIt,
+  saveToFile,
+  saveResponse,
 };

@@ -11,31 +11,10 @@ const {
   titleSelector,
   linkSelector,
   snippetSelector,
+  logIt,
+  saveToFile,
+  saveResponse,
 } = require('./utils');
-
-function logIt(message, disableConsole) {
-  if (!disableConsole) {
-    console.log(message);
-  }
-}
-
-function saveToFile(output, results) {
-  if (output !== undefined) {
-    fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
-      if (err) {
-        console.err(`Error writing to file ${output}: ${err}`);
-      }
-    });
-  }
-}
-
-function saveResponse(response, htmlFileOutputPath) {
-  if (htmlFileOutputPath) {
-    fs.writeFile(htmlFileOutputPath, response.body, () => {
-      console.log(`Html file saved to ${htmlFileOutputPath}`);
-    });
-  }
-}
 
 function errorTryingToOpen(error, stdout, stderr) {
   if (error) {
@@ -136,15 +115,14 @@ function getResponseBody({
       const defaultOptions = getDefaultRequestOptions(limit, query, userAgent);
       request(Object.assign({}, defaultOptions, options), (error, response, body) => {
         if (error) {
-          // eslint-disable-next-line prefer-promise-reject-errors
-          return reject(`Error making web request: ${error}`, null);
+          reject(new Error(`Error making web request: ${error}`));
         }
 
         if (response.statusCode !== 200) {
-          return reject(cheerio.load(response.body).text());
+          reject(cheerio.load(response.body).text());
         }
         saveResponse(response, htmlFileOutputPath);
-        return resolve(body);
+        resolve(body);
       });
     }
   });
@@ -152,12 +130,12 @@ function getResponseBody({
 
 function googleIt(config) {
   const {
-    query, limit, userAgent, output, open, options = {}, htmlFileOutputPath, fromFile,
+    output,
+    open,
+    returnHtmlBody,
   } = config;
   return new Promise((resolve, reject) => {
-    getResponseBody({
-      fromFile, options, htmlFileOutputPath, query, limit, userAgent,
-    }).then((body) => {
+    getResponseBody(config).then((body) => {
       const results = getResults({
         data: body,
         noDisplay: config['no-display'],
@@ -166,6 +144,9 @@ function googleIt(config) {
       });
       saveToFile(output, results);
       openInBrowser(open, results);
+      if (returnHtmlBody) {
+        return resolve({ results, body });
+      }
       return resolve(results);
     }).catch(reject);
   });
