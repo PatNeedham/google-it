@@ -14,12 +14,16 @@ const {
 const defaultUserAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0';
 
 const defaultLimit = 10;
+const defaultStart = 0;
 
-const getDefaultRequestOptions = (limit, query, userAgent) => ({
+const getDefaultRequestOptions = ({
+  limit, query, userAgent, start,
+}) => ({
   url: 'https://www.google.com/search',
   qs: {
     q: query,
     num: limit || defaultLimit,
+    start: start || defaultStart,
   },
   headers: {
     'User-Agent': userAgent || defaultUserAgent,

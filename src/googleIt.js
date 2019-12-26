@@ -107,7 +107,7 @@ function getResults({
 }
 
 function getResponseBody({
-  fromFile: filePath, options, htmlFileOutputPath, query, limit, userAgent,
+  fromFile: filePath, options, htmlFileOutputPath, query, limit, userAgent, start,
 }) {
   return new Promise((resolve, reject) => {
     if (filePath) {
@@ -118,7 +118,9 @@ function getResponseBody({
         return resolve(data);
       });
     } else {
-      const defaultOptions = getDefaultRequestOptions(limit, query, userAgent);
+      const defaultOptions = getDefaultRequestOptions({
+        limit, query, userAgent, start,
+      });
       request(Object.assign({}, defaultOptions, options), (error, response, body) => {
         if (error) {
           reject(new Error(`Error making web request: ${error}`));
@@ -138,6 +140,7 @@ function googleIt(config) {
     titleSelector,
     linkSelector,
     snippetSelector,
+    start,
   } = config;
   return new Promise((resolve, reject) => {
     getResponseBody(config).then((body) => {
@@ -149,6 +152,7 @@ function googleIt(config) {
         titleSelector,
         linkSelector,
         snippetSelector,
+        start,
       });
       saveToFile(output, results);
       openInBrowser(open, results);

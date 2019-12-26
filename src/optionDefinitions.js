@@ -16,6 +16,9 @@ const optionDefinitions = [
   // number of search results to be returned
   { name: 'limit', alias: 'l', type: Number },
 
+  // enable pagination by choosing which result to start at
+  { name: 'start', type: Number },
+
   // console.log useful statements to show what's currently taking place
   { name: 'verbose', alias: 'v', type: Boolean },
 
