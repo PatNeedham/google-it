@@ -28,6 +28,7 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-amex": "^10.1.0",
+    "jest": "^24.9.0",
     "mocha": "^5.0.0",
     "prettier": "1.14.3"
   }
