@@ -1,0 +1,112 @@
+f1387bb26758407f7154d14c73f91565
+/* istanbul ignore next */
+"use strict";
+
+var cov_2pggjecoa4 = function () {
+  var path = "/Users/patneedham/Desktop/dev/tmp/google-it/test/without_console_logs.js";
+  var hash = "555d0fb7120e1f1f622963a29acfe5f24fd57253";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/patneedham/Desktop/dev/tmp/google-it/test/without_console_logs.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 17
+        },
+        end: {
+          line: 2,
+          column: 43
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 7,
+          column: 2
+        },
+        end: {
+          line: 7,
+          column: 71
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 4,
+            column: 76
+          },
+          end: {
+            line: 4,
+            column: 77
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 89
+          },
+          end: {
+            line: 8,
+            column: 1
+          }
+        },
+        line: 4
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184",
+    hash: "555d0fb7120e1f1f622963a29acfe5f24fd57253"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  return coverage[path] = coverageData;
+}();
+
+/* eslint-disable no-console */
+var googleIt =
+/* istanbul ignore next */
+(cov_2pggjecoa4.s[0]++, require('../src/googleIt'));
+
+/* istanbul ignore next */
+cov_2pggjecoa4.s[1]++;
+googleIt({
+  query: 'St. Vincent St. Mary Ohio',
+  disableConsole: true
+}).then(function (results) {
+  /* istanbul ignore next */
+  cov_2pggjecoa4.f[0]++;
+  cov_2pggjecoa4.s[2]++;
+  // THIS console.log will display when running `node test/without_console_logs.js
+  // but the color-coded results will NOT display in the terminal
+  console.log(
+  /* istanbul ignore next */
+  "the results here: ".concat(JSON.stringify(results, null, 2)));
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndpdGhvdXRfY29uc29sZV9sb2dzLmpzIl0sIm5hbWVzIjpbImdvb2dsZUl0IiwicmVxdWlyZSIsInF1ZXJ5IiwiZGlzYWJsZUNvbnNvbGUiLCJ0aGVuIiwicmVzdWx0cyIsImNvbnNvbGUiLCJsb2ciLCJKU09OIiwic3RyaW5naWZ5Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUNBLElBQU1BLFFBQVE7QUFBQTtBQUFBLHdCQUFHQyxPQUFPLENBQUMsaUJBQUQsQ0FBVixDQUFkOzs7O0FBRUFELFFBQVEsQ0FBQztBQUFFRSxFQUFBQSxLQUFLLEVBQUUsMkJBQVQ7QUFBc0NDLEVBQUFBLGNBQWMsRUFBRTtBQUF0RCxDQUFELENBQVIsQ0FBdUVDLElBQXZFLENBQTRFLFVBQUNDLE9BQUQsRUFBYTtBQUFBO0FBQUE7QUFBQTtBQUN2RjtBQUNBO0FBQ0FDLEVBQUFBLE9BQU8sQ0FBQ0MsR0FBUjtBQUFBO0FBQUEsOEJBQWlDQyxJQUFJLENBQUNDLFNBQUwsQ0FBZUosT0FBZixFQUF3QixJQUF4QixFQUE4QixDQUE5QixDQUFqQztBQUNELENBSkQiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBlc2xpbnQtZGlzYWJsZSBuby1jb25zb2xlICovXG5jb25zdCBnb29nbGVJdCA9IHJlcXVpcmUoJy4uL3NyYy9nb29nbGVJdCcpO1xuXG5nb29nbGVJdCh7IHF1ZXJ5OiAnU3QuIFZpbmNlbnQgU3QuIE1hcnkgT2hpbycsIGRpc2FibGVDb25zb2xlOiB0cnVlIH0pLnRoZW4oKHJlc3VsdHMpID0+IHtcbiAgLy8gVEhJUyBjb25zb2xlLmxvZyB3aWxsIGRpc3BsYXkgd2hlbiBydW5uaW5nIGBub2RlIHRlc3Qvd2l0aG91dF9jb25zb2xlX2xvZ3MuanNcbiAgLy8gYnV0IHRoZSBjb2xvci1jb2RlZCByZXN1bHRzIHdpbGwgTk9UIGRpc3BsYXkgaW4gdGhlIHRlcm1pbmFsXG4gIGNvbnNvbGUubG9nKGB0aGUgcmVzdWx0cyBoZXJlOiAke0pTT04uc3RyaW5naWZ5KHJlc3VsdHMsIG51bGwsIDIpfWApO1xufSk7XG4iXX0=

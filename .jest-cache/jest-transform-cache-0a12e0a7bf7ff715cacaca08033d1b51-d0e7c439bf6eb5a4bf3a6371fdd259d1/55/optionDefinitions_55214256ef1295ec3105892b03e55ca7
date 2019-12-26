@@ -1,0 +1,144 @@
+efebd2de18db34441b14bd8ac25b8d26
+/* istanbul ignore next */
+var cov_gvq1xhsp0 = function () {
+  var path = "/Users/patneedham/Desktop/dev/tmp/google-it/src/optionDefinitions.js";
+  var hash = "2b33750960780a9ee46d8991baf6def3353b15f0";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/patneedham/Desktop/dev/tmp/google-it/src/optionDefinitions.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 26
+        },
+        end: {
+          line: 54,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 56,
+          column: 0
+        },
+        end: {
+          line: 56,
+          column: 35
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0
+    },
+    f: {},
+    b: {},
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184",
+    hash: "2b33750960780a9ee46d8991baf6def3353b15f0"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  return coverage[path] = coverageData;
+}();
+
+const optionDefinitions =
+/* istanbul ignore next */
+(cov_gvq1xhsp0.s[0]++, [// the query that should be sent to the Google search
+{
+  name: 'query',
+  alias: 'q',
+  type: String
+}, // name of the JSON file to save results to
+{
+  name: 'output',
+  alias: 'o',
+  type: String
+}, // prevent results from appearing in the terminal output. Should only be used
+// with --output (-o) command when saving results to a file
+{
+  name: 'no-display',
+  alias: 'n',
+  type: Boolean
+}, // name of the html file if you want to save the actual response from the
+// html request
+{
+  name: 'save',
+  alias: 's',
+  type: String
+}, // number of search results to be returned
+{
+  name: 'limit',
+  alias: 'l',
+  type: Number
+}, // enable pagination by choosing which result to start at
+{
+  name: 'start',
+  type: Number
+}, // console.log useful statements to show what's currently taking place
+{
+  name: 'verbose',
+  alias: 'v',
+  type: Boolean
+}, // once results are returned, show them in an interactive prompt where user
+// can scroll through them
+{
+  name: 'interactive',
+  alias: 'i',
+  type: Boolean
+}, // only display the URLs, instead of the titles and snippets
+{
+  name: 'only-urls',
+  alias: 'u',
+  type: Boolean
+}, // only takes effect when interactive (-i) flag is set as well, will bold
+// test in results that matched the query
+{
+  name: 'bold-matching-text',
+  alias: 'b',
+  type: Boolean
+}, // option to limit results to only these two sites
+{
+  name: 'stackoverflow-github-only',
+  alias: 'X',
+  type: Boolean
+}, // option to open the first X number of results directly in browser
+// (only tested on Mac!).
+{
+  name: 'open',
+  alias: 'O',
+  type: Number
+}, // option to save the html file of the Google search result page
+{
+  name: 'htmlFileOutputPath',
+  alias: 'h',
+  type: String
+}, // option to use specific HTML file to parse, one that might exist locally
+// for example, main for debugging purposes
+{
+  name: 'fromFile',
+  alias: 'f',
+  type: String
+}, // override the hard-coded selectors defined inside /src/utils.js
+{
+  name: 'titleSelector',
+  type: String
+}, {
+  name: 'linkSelector',
+  type: String
+}, {
+  name: 'snippetSelector',
+  type: String
+}]);
+
+/* istanbul ignore next */
+cov_gvq1xhsp0.s[1]++;
+module.exports = optionDefinitions;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm9wdGlvbkRlZmluaXRpb25zLmpzIl0sIm5hbWVzIjpbIm9wdGlvbkRlZmluaXRpb25zIiwibmFtZSIsImFsaWFzIiwidHlwZSIsIlN0cmluZyIsIkJvb2xlYW4iLCJOdW1iZXIiLCJtb2R1bGUiLCJleHBvcnRzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLE1BQU1BLGlCQUFpQjtBQUFBO0FBQUEsdUJBQUcsQ0FDeEI7QUFDQTtBQUFFQyxFQUFBQSxJQUFJLEVBQUUsT0FBUjtBQUFpQkMsRUFBQUEsS0FBSyxFQUFFLEdBQXhCO0FBQTZCQyxFQUFBQSxJQUFJLEVBQUVDO0FBQW5DLENBRndCLEVBSXhCO0FBQ0E7QUFBRUgsRUFBQUEsSUFBSSxFQUFFLFFBQVI7QUFBa0JDLEVBQUFBLEtBQUssRUFBRSxHQUF6QjtBQUE4QkMsRUFBQUEsSUFBSSxFQUFFQztBQUFwQyxDQUx3QixFQU94QjtBQUNBO0FBQ0E7QUFBRUgsRUFBQUEsSUFBSSxFQUFFLFlBQVI7QUFBc0JDLEVBQUFBLEtBQUssRUFBRSxHQUE3QjtBQUFrQ0MsRUFBQUEsSUFBSSxFQUFFRTtBQUF4QyxDQVR3QixFQVd4QjtBQUNBO0FBQ0E7QUFBRUosRUFBQUEsSUFBSSxFQUFFLE1BQVI7QUFBZ0JDLEVBQUFBLEtBQUssRUFBRSxHQUF2QjtBQUE0QkMsRUFBQUEsSUFBSSxFQUFFQztBQUFsQyxDQWJ3QixFQWV4QjtBQUNBO0FBQUVILEVBQUFBLElBQUksRUFBRSxPQUFSO0FBQWlCQyxFQUFBQSxLQUFLLEVBQUUsR0FBeEI7QUFBNkJDLEVBQUFBLElBQUksRUFBRUc7QUFBbkMsQ0FoQndCLEVBa0J4QjtBQUNBO0FBQUVMLEVBQUFBLElBQUksRUFBRSxPQUFSO0FBQWlCRSxFQUFBQSxJQUFJLEVBQUVHO0FBQXZCLENBbkJ3QixFQXFCeEI7QUFDQTtBQUFFTCxFQUFBQSxJQUFJLEVBQUUsU0FBUjtBQUFtQkMsRUFBQUEsS0FBSyxFQUFFLEdBQTFCO0FBQStCQyxFQUFBQSxJQUFJLEVBQUVFO0FBQXJDLENBdEJ3QixFQXdCeEI7QUFDQTtBQUNBO0FBQUVKLEVBQUFBLElBQUksRUFBRSxhQUFSO0FBQXVCQyxFQUFBQSxLQUFLLEVBQUUsR0FBOUI7QUFBbUNDLEVBQUFBLElBQUksRUFBRUU7QUFBekMsQ0ExQndCLEVBNEJ4QjtBQUNBO0FBQUVKLEVBQUFBLElBQUksRUFBRSxXQUFSO0FBQXFCQyxFQUFBQSxLQUFLLEVBQUUsR0FBNUI7QUFBaUNDLEVBQUFBLElBQUksRUFBRUU7QUFBdkMsQ0E3QndCLEVBK0J4QjtBQUNBO0FBQ0E7QUFBRUosRUFBQUEsSUFBSSxFQUFFLG9CQUFSO0FBQThCQyxFQUFBQSxLQUFLLEVBQUUsR0FBckM7QUFBMENDLEVBQUFBLElBQUksRUFBRUU7QUFBaEQsQ0FqQ3dCLEVBbUN4QjtBQUNBO0FBQUVKLEVBQUFBLElBQUksRUFBRSwyQkFBUjtBQUFxQ0MsRUFBQUEsS0FBSyxFQUFFLEdBQTVDO0FBQWlEQyxFQUFBQSxJQUFJLEVBQUVFO0FBQXZELENBcEN3QixFQXNDeEI7QUFDQTtBQUNBO0FBQUVKLEVBQUFBLElBQUksRUFBRSxNQUFSO0FBQWdCQyxFQUFBQSxLQUFLLEVBQUUsR0FBdkI7QUFBNEJDLEVBQUFBLElBQUksRUFBRUc7QUFBbEMsQ0F4Q3dCLEVBMEN4QjtBQUNBO0FBQUVMLEVBQUFBLElBQUksRUFBRSxvQkFBUjtBQUE4QkMsRUFBQUEsS0FBSyxFQUFFLEdBQXJDO0FBQTBDQyxFQUFBQSxJQUFJLEVBQUVDO0FBQWhELENBM0N3QixFQTZDeEI7QUFDQTtBQUNBO0FBQUVILEVBQUFBLElBQUksRUFBRSxVQUFSO0FBQW9CQyxFQUFBQSxLQUFLLEVBQUUsR0FBM0I7QUFBZ0NDLEVBQUFBLElBQUksRUFBRUM7QUFBdEMsQ0EvQ3dCLEVBaUR4QjtBQUNBO0FBQUVILEVBQUFBLElBQUksRUFBRSxlQUFSO0FBQXlCRSxFQUFBQSxJQUFJLEVBQUVDO0FBQS9CLENBbER3QixFQW1EeEI7QUFBRUgsRUFBQUEsSUFBSSxFQUFFLGNBQVI7QUFBd0JFLEVBQUFBLElBQUksRUFBRUM7QUFBOUIsQ0FuRHdCLEVBb0R4QjtBQUFFSCxFQUFBQSxJQUFJLEVBQUUsaUJBQVI7QUFBMkJFLEVBQUFBLElBQUksRUFBRUM7QUFBakMsQ0FwRHdCLENBQUgsQ0FBdkI7Ozs7QUF1REFHLE1BQU0sQ0FBQ0MsT0FBUCxHQUFpQlIsaUJBQWpCIiwic291cmNlc0NvbnRlbnQiOlsiY29uc3Qgb3B0aW9uRGVmaW5pdGlvbnMgPSBbXG4gIC8vIHRoZSBxdWVyeSB0aGF0IHNob3VsZCBiZSBzZW50IHRvIHRoZSBHb29nbGUgc2VhcmNoXG4gIHsgbmFtZTogJ3F1ZXJ5JywgYWxpYXM6ICdxJywgdHlwZTogU3RyaW5nIH0sXG5cbiAgLy8gbmFtZSBvZiB0aGUgSlNPTiBmaWxlIHRvIHNhdmUgcmVzdWx0cyB0b1xuICB7IG5hbWU6ICdvdXRwdXQnLCBhbGlhczogJ28nLCB0eXBlOiBTdHJpbmcgfSxcblxuICAvLyBwcmV2ZW50IHJlc3VsdHMgZnJvbSBhcHBlYXJpbmcgaW4gdGhlIHRlcm1pbmFsIG91dHB1dC4gU2hvdWxkIG9ubHkgYmUgdXNlZFxuICAvLyB3aXRoIC0tb3V0cHV0ICgtbykgY29tbWFuZCB3aGVuIHNhdmluZyByZXN1bHRzIHRvIGEgZmlsZVxuICB7IG5hbWU6ICduby1kaXNwbGF5JywgYWxpYXM6ICduJywgdHlwZTogQm9vbGVhbiB9LFxuXG4gIC8vIG5hbWUgb2YgdGhlIGh0bWwgZmlsZSBpZiB5b3Ugd2FudCB0byBzYXZlIHRoZSBhY3R1YWwgcmVzcG9uc2UgZnJvbSB0aGVcbiAgLy8gaHRtbCByZXF1ZXN0XG4gIHsgbmFtZTogJ3NhdmUnLCBhbGlhczogJ3MnLCB0eXBlOiBTdHJpbmcgfSxcblxuICAvLyBudW1iZXIgb2Ygc2VhcmNoIHJlc3VsdHMgdG8gYmUgcmV0dXJuZWRcbiAgeyBuYW1lOiAnbGltaXQnLCBhbGlhczogJ2wnLCB0eXBlOiBOdW1iZXIgfSxcblxuICAvLyBlbmFibGUgcGFnaW5hdGlvbiBieSBjaG9vc2luZyB3aGljaCByZXN1bHQgdG8gc3RhcnQgYXRcbiAgeyBuYW1lOiAnc3RhcnQnLCB0eXBlOiBOdW1iZXIgfSxcblxuICAvLyBjb25zb2xlLmxvZyB1c2VmdWwgc3RhdGVtZW50cyB0byBzaG93IHdoYXQncyBjdXJyZW50bHkgdGFraW5nIHBsYWNlXG4gIHsgbmFtZTogJ3ZlcmJvc2UnLCBhbGlhczogJ3YnLCB0eXBlOiBCb29sZWFuIH0sXG5cbiAgLy8gb25jZSByZXN1bHRzIGFyZSByZXR1cm5lZCwgc2hvdyB0aGVtIGluIGFuIGludGVyYWN0aXZlIHByb21wdCB3aGVyZSB1c2VyXG4gIC8vIGNhbiBzY3JvbGwgdGhyb3VnaCB0aGVtXG4gIHsgbmFtZTogJ2ludGVyYWN0aXZlJywgYWxpYXM6ICdpJywgdHlwZTogQm9vbGVhbiB9LFxuXG4gIC8vIG9ubHkgZGlzcGxheSB0aGUgVVJMcywgaW5zdGVhZCBvZiB0aGUgdGl0bGVzIGFuZCBzbmlwcGV0c1xuICB7IG5hbWU6ICdvbmx5LXVybHMnLCBhbGlhczogJ3UnLCB0eXBlOiBCb29sZWFuIH0sXG5cbiAgLy8gb25seSB0YWtlcyBlZmZlY3Qgd2hlbiBpbnRlcmFjdGl2ZSAoLWkpIGZsYWcgaXMgc2V0IGFzIHdlbGwsIHdpbGwgYm9sZFxuICAvLyB0ZXN0IGluIHJlc3VsdHMgdGhhdCBtYXRjaGVkIHRoZSBxdWVyeVxuICB7IG5hbWU6ICdib2xkLW1hdGNoaW5nLXRleHQnLCBhbGlhczogJ2InLCB0eXBlOiBCb29sZWFuIH0sXG5cbiAgLy8gb3B0aW9uIHRvIGxpbWl0IHJlc3VsdHMgdG8gb25seSB0aGVzZSB0d28gc2l0ZXNcbiAgeyBuYW1lOiAnc3RhY2tvdmVyZmxvdy1naXRodWItb25seScsIGFsaWFzOiAnWCcsIHR5cGU6IEJvb2xlYW4gfSxcblxuICAvLyBvcHRpb24gdG8gb3BlbiB0aGUgZmlyc3QgWCBudW1iZXIgb2YgcmVzdWx0cyBkaXJlY3RseSBpbiBicm93c2VyXG4gIC8vIChvbmx5IHRlc3RlZCBvbiBNYWMhKS5cbiAgeyBuYW1lOiAnb3BlbicsIGFsaWFzOiAnTycsIHR5cGU6IE51bWJlciB9LFxuXG4gIC8vIG9wdGlvbiB0byBzYXZlIHRoZSBodG1sIGZpbGUgb2YgdGhlIEdvb2dsZSBzZWFyY2ggcmVzdWx0IHBhZ2VcbiAgeyBuYW1lOiAnaHRtbEZpbGVPdXRwdXRQYXRoJywgYWxpYXM6ICdoJywgdHlwZTogU3RyaW5nIH0sXG5cbiAgLy8gb3B0aW9uIHRvIHVzZSBzcGVjaWZpYyBIVE1MIGZpbGUgdG8gcGFyc2UsIG9uZSB0aGF0IG1pZ2h0IGV4aXN0IGxvY2FsbHlcbiAgLy8gZm9yIGV4YW1wbGUsIG1haW4gZm9yIGRlYnVnZ2luZyBwdXJwb3Nlc1xuICB7IG5hbWU6ICdmcm9tRmlsZScsIGFsaWFzOiAnZicsIHR5cGU6IFN0cmluZyB9LFxuXG4gIC8vIG92ZXJyaWRlIHRoZSBoYXJkLWNvZGVkIHNlbGVjdG9ycyBkZWZpbmVkIGluc2lkZSAvc3JjL3V0aWxzLmpzXG4gIHsgbmFtZTogJ3RpdGxlU2VsZWN0b3InLCB0eXBlOiBTdHJpbmcgfSxcbiAgeyBuYW1lOiAnbGlua1NlbGVjdG9yJywgdHlwZTogU3RyaW5nIH0sXG4gIHsgbmFtZTogJ3NuaXBwZXRTZWxlY3RvcicsIHR5cGU6IFN0cmluZyB9LFxuXTtcblxubW9kdWxlLmV4cG9ydHMgPSBvcHRpb25EZWZpbml0aW9ucztcbiJdfQ==

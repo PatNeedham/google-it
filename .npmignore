@@ -1,0 +1,7 @@
+test-results
+__tests__
+.travis.yml
+.eslintrc.json
+*.tgz
+.jest-cache
+.vscode

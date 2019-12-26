@@ -10,7 +10,7 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --ext .js --ignore-path .eslintignore '*.js'",
-    "test": "mocha test/**/*.js"
+    "test": "jest"
   },
   "keywords": [
     "google-search",
@@ -18,6 +18,17 @@
   ],
   "author": "Pat Needham (pat@needham.io)",
   "license": "ISC",
+  "jest": {
+    "preset": "amex-jest-preset",
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 60,
+        "lines": 60,
+        "statements": 60
+      }
+    }
+  },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.4.0",
@@ -26,6 +37,8 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "amex-jest-preset": "^5.0.0",
+    "babel-preset-amex": "^3.3.0",
     "eslint": "^5.16.0",
     "eslint-config-amex": "^10.1.0",
     "jest": "^24.9.0",

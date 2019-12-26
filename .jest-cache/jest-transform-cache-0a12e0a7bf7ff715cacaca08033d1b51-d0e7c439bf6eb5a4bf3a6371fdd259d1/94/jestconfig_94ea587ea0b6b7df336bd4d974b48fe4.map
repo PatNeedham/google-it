@@ -1,0 +1,1 @@
+{"version":3,"sources":["jest.config.js"],"names":["module","exports","preset"],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAAA,MAAM,CAACC,OAAP,GAAiB;AACfC,EAAAA,MAAM,EAAE;AADO,CAAjB","sourcesContent":["module.exports = {\n  preset: 'amex-jest-preset',\n};\n"]}

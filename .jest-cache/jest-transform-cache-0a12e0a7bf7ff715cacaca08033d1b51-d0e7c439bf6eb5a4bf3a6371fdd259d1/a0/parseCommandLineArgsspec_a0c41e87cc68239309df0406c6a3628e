@@ -1,0 +1,16 @@
+1d6f32fc13ff6d3eb00e81dce078124d
+"use strict";
+
+var _parseCommandLineArgs = _interopRequireDefault(require("../src/parseCommandLineArgs"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+describe('parseCommandLineArgs', function () {
+  it('returns object with only "query" field when argv.length is 3', function () {
+    var result = (0, _parseCommandLineArgs.default)(['node', '/some/random/path', 'my query']);
+    expect(result).toEqual({
+      query: 'my query'
+    });
+  });
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhcnNlQ29tbWFuZExpbmVBcmdzLnNwZWMuanMiXSwibmFtZXMiOlsiZGVzY3JpYmUiLCJpdCIsInJlc3VsdCIsImV4cGVjdCIsInRvRXF1YWwiLCJxdWVyeSJdLCJtYXBwaW5ncyI6Ijs7QUFBQTs7OztBQUVBQSxRQUFRLENBQUMsc0JBQUQsRUFBeUIsWUFBTTtBQUNyQ0MsRUFBQUEsRUFBRSxDQUFDLDhEQUFELEVBQWlFLFlBQU07QUFDdkUsUUFBTUMsTUFBTSxHQUFHLG1DQUFxQixDQUFDLE1BQUQsRUFBUyxtQkFBVCxFQUE4QixVQUE5QixDQUFyQixDQUFmO0FBQ0FDLElBQUFBLE1BQU0sQ0FBQ0QsTUFBRCxDQUFOLENBQWVFLE9BQWYsQ0FBdUI7QUFDckJDLE1BQUFBLEtBQUssRUFBRTtBQURjLEtBQXZCO0FBR0QsR0FMQyxDQUFGO0FBTUQsQ0FQTyxDQUFSIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHBhcnNlQ29tbWFuZExpbmVBcmdzIGZyb20gJy4uL3NyYy9wYXJzZUNvbW1hbmRMaW5lQXJncyc7XG5cbmRlc2NyaWJlKCdwYXJzZUNvbW1hbmRMaW5lQXJncycsICgpID0+IHtcbiAgaXQoJ3JldHVybnMgb2JqZWN0IHdpdGggb25seSBcInF1ZXJ5XCIgZmllbGQgd2hlbiBhcmd2Lmxlbmd0aCBpcyAzJywgKCkgPT4ge1xuICAgIGNvbnN0IHJlc3VsdCA9IHBhcnNlQ29tbWFuZExpbmVBcmdzKFsnbm9kZScsICcvc29tZS9yYW5kb20vcGF0aCcsICdteSBxdWVyeSddKTtcbiAgICBleHBlY3QocmVzdWx0KS50b0VxdWFsKHtcbiAgICAgIHF1ZXJ5OiAnbXkgcXVlcnknLFxuICAgIH0pO1xuICB9KTtcbn0pO1xuIl19

@@ -1,0 +1,205 @@
+3e1d707bcec7b2c511bf7be40177c94b
+/* istanbul ignore next */
+"use strict";
+
+var cov_1c1zsyfw1k = function () {
+  var path = "/Users/patneedham/Desktop/dev/tmp/google-it/src/sandbox.js";
+  var hash = "31572e6d1bc1311731e420d4c5f2be164356c33c";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/patneedham/Desktop/dev/tmp/google-it/src/sandbox.js",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 17
+        },
+        end: {
+          line: 2,
+          column: 38
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 2
+        },
+        end: {
+          line: 14,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 20
+        },
+        end: {
+          line: 8,
+          column: 5
+        }
+      },
+      "3": {
+        start: {
+          line: 9,
+          column: 20
+        },
+        end: {
+          line: 9,
+          column: 71
+        }
+      },
+      "4": {
+        start: {
+          line: 11,
+          column: 4
+        },
+        end: {
+          line: 11,
+          column: 25
+        }
+      },
+      "5": {
+        start: {
+          line: 13,
+          column: 4
+        },
+        end: {
+          line: 13,
+          column: 21
+        }
+      },
+      "6": {
+        start: {
+          line: 17,
+          column: 0
+        },
+        end: {
+          line: 17,
+          column: 10
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "sandbox",
+        decl: {
+          start: {
+            line: 4,
+            column: 15
+          },
+          end: {
+            line: 4,
+            column: 22
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 25
+          },
+          end: {
+            line: 15,
+            column: 1
+          }
+        },
+        line: 4
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    _coverageSchema: "43e27e138ebf9cfc5966b082cf9a028302ed4184",
+    hash: "31572e6d1bc1311731e420d4c5f2be164356c33c"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (coverage[path] && coverage[path].hash === hash) {
+    return coverage[path];
+  }
+
+  return coverage[path] = coverageData;
+}();
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+/* eslint-disable no-console */
+var googleIt =
+/* istanbul ignore next */
+(cov_1c1zsyfw1k.s[0]++, require('./googleIt'));
+
+/* istanbul ignore next */
+function sandbox() {
+  return _sandbox.apply(this, arguments);
+}
+
+/* istanbul ignore next */
+function _sandbox() {
+  _sandbox = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function
+  /* istanbul ignore next */
+  _callee()
+  /* istanbul ignore next */
+  {
+    var options, results;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            cov_1c1zsyfw1k.f[0]++;
+            cov_1c1zsyfw1k.s[1]++;
+            _context.prev = 2;
+            options = (cov_1c1zsyfw1k.s[2]++, {
+              proxy: 'http://localhost:8118'
+            });
+            cov_1c1zsyfw1k.s[3]++;
+            _context.next = 7;
+            return googleIt({
+              options: options,
+              query: 'covfefe irony'
+            });
+
+          case 7:
+            results = _context.sent;
+            cov_1c1zsyfw1k.s[4]++;
+            console.log(results);
+            _context.next = 16;
+            break;
+
+          case 12:
+            _context.prev = 12;
+            _context.t0 = _context["catch"](2);
+            cov_1c1zsyfw1k.s[5]++;
+            console.error(
+            /* istanbul ignore next */
+            _context.t0);
+
+          case 16:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[2, 12]]);
+  }));
+  return _sandbox.apply(this, arguments);
+}
+
+/* istanbul ignore next */
+cov_1c1zsyfw1k.s[6]++;
+sandbox();
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNhbmRib3guanMiXSwibmFtZXMiOlsiZ29vZ2xlSXQiLCJyZXF1aXJlIiwic2FuZGJveCIsIm9wdGlvbnMiLCJwcm94eSIsInF1ZXJ5IiwicmVzdWx0cyIsImNvbnNvbGUiLCJsb2ciLCJlcnJvciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQSxJQUFNQSxRQUFRO0FBQUE7QUFBQSx3QkFBR0MsT0FBTyxDQUFDLFlBQUQsQ0FBVixDQUFkOzs7U0FFZUMsTzs7Ozs7Ozs7MEJBQWY7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFFVUMsWUFBQUEsT0FGViwyQkFFb0I7QUFDZEMsY0FBQUEsS0FBSyxFQUFFO0FBRE8sYUFGcEI7QUFBQTtBQUFBO0FBQUEsbUJBSzBCSixRQUFRLENBQUM7QUFBRUcsY0FBQUEsT0FBTyxFQUFQQSxPQUFGO0FBQVdFLGNBQUFBLEtBQUssRUFBRTtBQUFsQixhQUFELENBTGxDOztBQUFBO0FBS1VDLFlBQUFBLE9BTFY7QUFBQTtBQU9JQyxZQUFBQSxPQUFPLENBQUNDLEdBQVIsQ0FBWUYsT0FBWjtBQVBKO0FBQUE7O0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFTSUMsWUFBQUEsT0FBTyxDQUFDRSxLQUFSO0FBQUE7QUFBQTs7QUFUSjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxHOzs7Ozs7QUFhQVAsT0FBTyIsInNvdXJjZXNDb250ZW50IjpbIi8qIGVzbGludC1kaXNhYmxlIG5vLWNvbnNvbGUgKi9cbmNvbnN0IGdvb2dsZUl0ID0gcmVxdWlyZSgnLi9nb29nbGVJdCcpO1xuXG5hc3luYyBmdW5jdGlvbiBzYW5kYm94KCkge1xuICB0cnkge1xuICAgIGNvbnN0IG9wdGlvbnMgPSB7XG4gICAgICBwcm94eTogJ2h0dHA6Ly9sb2NhbGhvc3Q6ODExOCcsXG4gICAgfTtcbiAgICBjb25zdCByZXN1bHRzID0gYXdhaXQgZ29vZ2xlSXQoeyBvcHRpb25zLCBxdWVyeTogJ2NvdmZlZmUgaXJvbnknIH0pO1xuXG4gICAgY29uc29sZS5sb2cocmVzdWx0cyk7XG4gIH0gY2F0Y2ggKGUpIHtcbiAgICBjb25zb2xlLmVycm9yKGUpO1xuICB9XG59XG5cbnNhbmRib3goKTtcbiJdfQ==

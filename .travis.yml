@@ -3,5 +3,9 @@ node_js:
   - 12
 install:
   - npm install
+  - npm install -g codecov
 lint:
   - npm run lint
+script:
+  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+  - codecov
