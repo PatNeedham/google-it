@@ -41,8 +41,8 @@
     "amex-jest-preset": "^5.0.0",
     "babel-preset-amex": "^3.3.0",
     "codecov": "^3.6.1",
-    "eslint": "^5.16.0",
-    "eslint-config-amex": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-amex": "^11.1.0",
     "jest": "^24.9.0",
     "mocha": "^6.2.2",
     "prettier": "1.19.1"
