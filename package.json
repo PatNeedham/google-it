@@ -20,6 +20,7 @@
   "license": "ISC",
   "jest": {
     "preset": "amex-jest-preset",
+    "collectCoverage": true,
     "coverageThreshold": {
       "global": {
         "branches": 70,
@@ -39,6 +40,7 @@
   "devDependencies": {
     "amex-jest-preset": "^5.0.0",
     "babel-preset-amex": "^3.3.0",
+    "codecov": "^3.6.1",
     "eslint": "^5.16.0",
     "eslint-config-amex": "^10.1.0",
     "jest": "^24.9.0",

@@ -9,5 +9,4 @@ lint:
 test:
   - npm run test
 script:
-  - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
-  - codecov
+  - ./node_modules/.bin/codecov
