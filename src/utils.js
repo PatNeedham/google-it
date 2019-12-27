@@ -56,7 +56,7 @@ const saveToFile = (output, results) => {
   if (output !== undefined) {
     fs.writeFile(output, JSON.stringify(results, null, 2), 'utf8', (err) => {
       if (err) {
-        console.err(`Error writing to file ${output}: ${err}`);
+        console.error(`Error writing to file ${output}: ${err}`);
       }
     });
   }
@@ -73,9 +73,13 @@ const saveResponse = (response, htmlFileOutputPath) => {
 module.exports = {
   defaultUserAgent,
   defaultLimit,
+  defaultStart,
   getDefaultRequestOptions,
   getTitleSelector,
   getLinkSelector,
+  titleSelector,
+  linkSelector,
+  snippetSelector,
   getSnippetSelector,
   logIt,
   saveToFile,

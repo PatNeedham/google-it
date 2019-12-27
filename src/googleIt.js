@@ -16,7 +16,7 @@ const {
   saveResponse,
 } = require('./utils');
 
-function errorTryingToOpen(error, stdout, stderr) {
+export function errorTryingToOpen(error, stdout, stderr) {
   if (error) {
     console.log(`Error trying to open link in browser: ${error}`);
     console.log(`stdout: ${stdout}`);
@@ -24,7 +24,7 @@ function errorTryingToOpen(error, stdout, stderr) {
   }
 }
 
-function openInBrowser(open, results) {
+export function openInBrowser(open, results) {
   if (open !== undefined) {
     // open is the first X number of links to open
     results.slice(0, open).forEach((result) => {
@@ -33,7 +33,7 @@ function openInBrowser(open, results) {
   }
 }
 
-function getSnippet(elem) {
+export function getSnippet(elem) {
   return elem.children
     .map((child) => {
       if (!child.data) {
@@ -44,7 +44,7 @@ function getSnippet(elem) {
     .join('');
 }
 
-function display(results, disableConsole, onlyUrls) {
+export function display(results, disableConsole, onlyUrls) {
   logIt('\n', disableConsole);
   results.forEach((result) => {
     if (onlyUrls) {
@@ -60,7 +60,7 @@ function display(results, disableConsole, onlyUrls) {
   });
 }
 
-function getResults({
+export function getResults({
   data,
   noDisplay,
   disableConsole,
@@ -106,7 +106,7 @@ function getResults({
   return results;
 }
 
-function getResponseBody({
+export function getResponseBody({
   fromFile: filePath, options, htmlFileOutputPath, query, limit, userAgent, start,
 }) {
   return new Promise((resolve, reject) => {
@@ -164,4 +164,4 @@ function googleIt(config) {
   });
 }
 
-module.exports = googleIt;
+export default googleIt;

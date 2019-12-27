@@ -3,5 +3,10 @@ node_js:
   - 12
 install:
   - npm install
+  - npm install -g codecov
 lint:
   - npm run lint
+test:
+  - npm run test
+script:
+  - ./node_modules/.bin/codecov
