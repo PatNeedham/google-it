@@ -2,15 +2,17 @@
   "name": "google-it",
   "version": "1.4.0",
   "description": "A CLI and Node.js library to help retrieve, display, and store Google search results",
-  "main": "./src/googleIt.js",
-  "bin": "./src/app.js",
+  "main": "./lib/main.js",
+  "bin": "./lib/app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/PatNeedham/google-it.git"
   },
   "scripts": {
+    "build": "babel src -d lib",
     "lint": "./node_modules/.bin/eslint --ext .js --ignore-path .eslintignore '*.js'",
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "google-search",
@@ -38,6 +40,8 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
     "amex-jest-preset": "^5.0.0",
     "babel-preset-amex": "^3.3.0",
     "codecov": "^3.6.1",
