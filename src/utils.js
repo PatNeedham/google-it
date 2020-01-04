@@ -30,9 +30,9 @@ const getDefaultRequestOptions = ({
   },
 });
 
-const titleSelector = '#rso > div > div > div > div > div > div.r > a > h3';
+const titleSelector = 'div.rc > div.r > a > h3';
 const linkSelector = 'div.rc > div.r > a';
-const snippetSelector = '#rso > div > div > div > div > div > div.s > div > span';
+const snippetSelector = 'div.rc > div.s > div > span';
 
 const getTitleSelector = passedValue => (
   passedValue || GOOGLE_IT_TITLE_SELECTOR || titleSelector
