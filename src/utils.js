@@ -34,15 +34,15 @@ const titleSelector = 'div.rc > div.r > a > h3';
 const linkSelector = 'div.rc > div.r > a';
 const snippetSelector = 'div.rc > div.s > div > span';
 
-const getTitleSelector = passedValue => (
+const getTitleSelector = (passedValue) => (
   passedValue || GOOGLE_IT_TITLE_SELECTOR || titleSelector
 );
 
-const getLinkSelector = passedValue => (
+const getLinkSelector = (passedValue) => (
   passedValue || GOOGLE_IT_LINK_SELECTOR || linkSelector
 );
 
-const getSnippetSelector = passedValue => (
+const getSnippetSelector = (passedValue) => (
   passedValue || GOOGLE_IT_SNIPPET_SELECTOR || snippetSelector
 );
 

@@ -37,7 +37,7 @@ export function getSnippet(elem) {
   return elem.children
     .map((child) => {
       if (!child.data) {
-        return child.children.map(c => c.data);
+        return child.children.map((c) => c.data);
       }
       return child.data;
     })
@@ -98,7 +98,7 @@ export function getResults({
   });
 
   if (onlyUrls) {
-    results = results.map(r => ({ link: r.link }));
+    results = results.map((r) => ({ link: r.link }));
   }
   if (!noDisplay) {
     display(results, disableConsole, onlyUrls);
@@ -106,7 +106,7 @@ export function getResults({
   return results;
 }
 
-export function getResponseBody({
+export function getResponse({
   fromFile: filePath, options, htmlFileOutputPath, query, limit, userAgent, start,
 }) {
   return new Promise((resolve, reject) => {
@@ -121,12 +121,12 @@ export function getResponseBody({
       const defaultOptions = getDefaultRequestOptions({
         limit, query, userAgent, start,
       });
-      request(Object.assign({}, defaultOptions, options), (error, response, body) => {
+      request({ ...defaultOptions, ...options }, (error, response, body) => {
         if (error) {
           reject(new Error(`Error making web request: ${error}`));
         }
         saveResponse(response, htmlFileOutputPath);
-        resolve(body);
+        resolve({ body, response });
       });
     }
   });
@@ -141,9 +141,10 @@ function googleIt(config) {
     linkSelector,
     snippetSelector,
     start,
+    diagnostics,
   } = config;
   return new Promise((resolve, reject) => {
-    getResponseBody(config).then((body) => {
+    getResponse(config).then(({ body, response }) => {
       const results = getResults({
         data: body,
         noDisplay: config['no-display'],
@@ -154,10 +155,14 @@ function googleIt(config) {
         snippetSelector,
         start,
       });
+      const { statusCode } = response;
+      if (results.length === 0 && statusCode !== 200 && !diagnostics) {
+        reject(new Error(`Error in response: statusCode ${statusCode}. To see the raw response object, please include the 'diagnostics: true' as part of the options object (or -d if using command line)`));
+      }
       saveToFile(output, results);
       openInBrowser(open, results);
-      if (returnHtmlBody) {
-        return resolve({ results, body });
+      if (returnHtmlBody || diagnostics) {
+        return resolve({ results, body, response });
       }
       return resolve(results);
     }).catch(reject);
