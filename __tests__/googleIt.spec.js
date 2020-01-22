@@ -1,12 +1,15 @@
 /* eslint-disable no-console */
 import { exec } from 'child_process';
+import { readFileSync, readFile } from 'fs';
+import request from 'request';
+import path from 'path';
 import {
   errorTryingToOpen,
   openInBrowser,
   getSnippet,
   display,
-  // getResults,
-  // getResponseBody,
+  getResults,
+  getResponse,
 } from '../src/googleIt';
 import { logIt } from '../src/utils';
 
@@ -22,6 +25,13 @@ jest.mock('../src/utils', () => ({
   ...jest.requireActual('../src/utils'),
   logIt: jest.fn(() => {}),
 }));
+
+jest.mock('fs', () => ({
+  ...jest.requireActual('fs'),
+  readFile: jest.fn(((filePath, callback) => callback())),
+}));
+
+jest.mock('request', () => jest.fn(() => {}));
 
 describe('errorTryingToOpen', () => {
   it('does not call console.log when error is falsy', () => {
@@ -94,5 +104,31 @@ describe('display', () => {
       { link: 'b', snippet: 'b' },
     ], false, false);
     expect(logIt).toHaveBeenCalledTimes(3);
+  });
+});
+
+describe('getResults', () => {
+  const htmlPageData = readFileSync(path.resolve(__dirname, './data/speed-of-light-divided-by-2.html'), 'utf8');
+  // speed of light divided by 2.html
+  const results = getResults({ data: htmlPageData });
+  expect(results.length).toBe(10);
+});
+
+describe('getResponse', () => {
+  it('calls fs.readFile when `fromFile` argument is passed', () => {
+    getResponse({ fromFile: '/path/to/file', query: 'fooBarBaz9001' });
+    expect(readFile).toHaveBeenCalled();
+  });
+
+  it('calls `request` when `fromFile` argument is not passed', () => {
+    getResponse({ query: 'fooBarBaz9001' });
+    expect(request).toHaveBeenCalled();
+  });
+
+  it('rejects with error when call to request returns with error', () => {
+    request.mockImplementation((args, callback) => callback(true, {}, {}));
+    getResponse({ query: 'fooBarBaz9001' }).catch((error) => {
+      expect(error !== null).toBe(true);
+    });
   });
 });
