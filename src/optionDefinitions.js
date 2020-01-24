@@ -51,6 +51,9 @@ const optionDefinitions = [
   { name: 'titleSelector', type: String },
   { name: 'linkSelector', type: String },
   { name: 'snippetSelector', type: String },
+
+  // allows for googleIt result object to include raw network request's response
+  { name: 'diagnostics', alias: 'd', type: Boolean },
 ];
 
 module.exports = optionDefinitions;
