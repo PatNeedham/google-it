@@ -48,7 +48,7 @@
     "eslint": "^6.8.0",
     "eslint-config-amex": "^11.1.0",
     "jest": "^24.9.0",
-    "mocha": "^6.2.2",
+    "mocha": "^7.0.1",
     "prettier": "1.19.1"
   }
 }
