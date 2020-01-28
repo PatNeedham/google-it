@@ -11,7 +11,10 @@ import {
   getResults,
   getResponse,
 } from '../src/googleIt';
-import { logIt } from '../src/utils';
+
+const utils = require('../src/utils');
+
+const { logIt } = utils;
 
 global.console = {
   ...global.console,
@@ -26,6 +29,8 @@ jest.mock('../src/utils', () => ({
   ...jest.requireActual('../src/utils'),
   logIt: jest.fn(() => {}),
 }));
+
+jest.spyOn(utils, 'getDefaultRequestOptions');
 
 jest.mock('fs', () => ({
   ...jest.requireActual('fs'),
@@ -142,5 +147,12 @@ describe('getResponse', () => {
     getResponse({ query: 'fooBarBaz9001' }).catch((error) => {
       expect(error !== null).toBe(true);
     });
+  });
+
+  it('calls neither fs.readFile nor getDefaultRequestOptions when fromString option passed', () => {
+    jest.clearAllMocks();
+    getResponse({ fromString: '<html>This does not actually exist. So what. It is only a test.</html>' });
+    expect(request).toHaveBeenCalledTimes(0);
+    expect(readFile).toHaveBeenCalledTimes(0);
   });
 });
