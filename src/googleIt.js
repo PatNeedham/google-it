@@ -122,28 +122,37 @@ export function getResults({
 }
 
 export function getResponse({
-  fromFile: filePath, options, htmlFileOutputPath, query, limit, userAgent, start,
+  fromFile: filePath,
+  fromString,
+  options,
+  htmlFileOutputPath,
+  query,
+  limit,
+  userAgent,
+  start,
 }) {
+  // eslint-disable-next-line consistent-return
   return new Promise((resolve, reject) => {
     if (filePath) {
       fs.readFile(filePath, (err, data) => {
         if (err) {
           return reject(new Error(`Erorr accessing file at ${filePath}: ${err}`));
         }
-        return resolve(data);
+        return resolve({ body: data });
       });
-    } else {
-      const defaultOptions = getDefaultRequestOptions({
-        limit, query, userAgent, start,
-      });
-      request({ ...defaultOptions, ...options }, (error, response, body) => {
-        if (error) {
-          reject(new Error(`Error making web request: ${error}`));
-        }
-        saveResponse(response, htmlFileOutputPath);
-        resolve({ body, response });
-      });
+    } else if (fromString) {
+      return resolve({ body: fromString });
     }
+    const defaultOptions = getDefaultRequestOptions({
+      limit, query, userAgent, start,
+    });
+    request({ ...defaultOptions, ...options }, (error, response, body) => {
+      if (error) {
+        return reject(new Error(`Error making web request: ${error}`));
+      }
+      saveResponse(response, htmlFileOutputPath);
+      return resolve({ body, response });
+    });
   });
 }
 
