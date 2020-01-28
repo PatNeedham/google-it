@@ -14,6 +14,7 @@ import {
 import { logIt } from '../src/utils';
 
 global.console = {
+  ...global.console,
   log: jest.fn(),
 };
 
@@ -107,11 +108,22 @@ describe('display', () => {
   });
 });
 
+const getTestResults = (filePath) => {
+  const htmlPageData = readFileSync(path.resolve(__dirname, filePath), 'utf8');
+  const { results } = getResults({ data: htmlPageData });
+  return results;
+};
+
 describe('getResults', () => {
-  const htmlPageData = readFileSync(path.resolve(__dirname, './data/speed-of-light-divided-by-2.html'), 'utf8');
-  // speed of light divided by 2.html
-  const results = getResults({ data: htmlPageData });
-  expect(results.length).toBe(10);
+  it('returns the correct number of results', () => {
+    const results = getTestResults('./data/speed-of-light-divided-by-2.html');
+    expect(results.length).toBe(10);
+  });
+
+  it('does not crash when results, result stats section, or cursor section of page are present', () => {
+    const results = getTestResults('./data/no-matching-documents.html');
+    expect(results.length).toBe(0);
+  });
 });
 
 describe('getResponse', () => {

@@ -6,6 +6,8 @@ const {
   GOOGLE_IT_TITLE_SELECTOR,
   GOOGLE_IT_LINK_SELECTOR,
   GOOGLE_IT_SNIPPET_SELECTOR,
+  GOOGLE_IT_RESULT_STATS_SELECTOR,
+  GOOGLE_IT_CURSOR_SELECTOR,
 } = process.env;
 
 // NOTE:
@@ -33,6 +35,8 @@ const getDefaultRequestOptions = ({
 const titleSelector = 'div.rc > div.r > a > h3';
 const linkSelector = 'div.rc > div.r > a';
 const snippetSelector = 'div.rc > div.s > div > span';
+const resultStatsSelector = '#resultStats';
+const cursorSelector = '#nav > tbody > tr > td.cur';
 
 const getTitleSelector = (passedValue) => (
   passedValue || GOOGLE_IT_TITLE_SELECTOR || titleSelector
@@ -44,6 +48,14 @@ const getLinkSelector = (passedValue) => (
 
 const getSnippetSelector = (passedValue) => (
   passedValue || GOOGLE_IT_SNIPPET_SELECTOR || snippetSelector
+);
+
+const getResultStatsSelector = (passedValue) => (
+  passedValue || GOOGLE_IT_RESULT_STATS_SELECTOR || resultStatsSelector
+);
+
+const getResultCursorSelector = (passedValue) => (
+  passedValue || GOOGLE_IT_CURSOR_SELECTOR || cursorSelector
 );
 
 const logIt = (message, disableConsole) => {
@@ -81,6 +93,9 @@ module.exports = {
   linkSelector,
   snippetSelector,
   getSnippetSelector,
+  resultStatsSelector,
+  getResultStatsSelector,
+  getResultCursorSelector,
   logIt,
   saveToFile,
   saveResponse,
