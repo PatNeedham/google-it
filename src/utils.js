@@ -32,9 +32,9 @@ const getDefaultRequestOptions = ({
   },
 });
 
-const titleSelector = 'div.rc > div.r > a > h3';
-const linkSelector = 'div.rc > div.r > a';
-const snippetSelector = 'div.rc > div.s > div > span';
+const titleSelector = 'div.rc > div:nth-child(1) > a > h3';
+const linkSelector = 'div.rc > div:nth-child(1) > a';
+const snippetSelector = 'div.rc > div:nth-child(2) > div > span';
 const resultStatsSelector = '#resultStats';
 const cursorSelector = '#nav > tbody > tr > td.cur';
 
