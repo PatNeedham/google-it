@@ -36,14 +36,23 @@ export function openInBrowser(open, results) {
 }
 
 export function getSnippet(elem) {
-  return elem.children
-    .map((child) => {
-      if (!child.data) {
-        return child.children.map((c) => c.data);
-      }
-      return child.data;
-    })
-    .join('');
+  // recursive function to get "all" the returned data from Google
+  function findData(child) {
+    if (!child.data) {
+      return child.children.map(function (c) {
+        if (!c.data) {
+          return findData(c)
+        }
+        else {
+          return c.data;
+        }
+      });
+    }
+    return child.data;
+  }
+  return elem.children && elem.children.length > 0 ? elem.children.map(function (child) {
+    return Array(findData(child)).join('')
+  }).join('') : '';
 }
 
 export function display(results, disableConsole, onlyUrls) {
