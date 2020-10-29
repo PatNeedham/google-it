@@ -39,7 +39,7 @@ export function getSnippet(elem) {
   // recursive function to get "all" the returned data from Google
   function findData(child) {
     if (!child.data) {
-      return child.children.map((c) => (c.data ? c.data : findData(c)));
+      return child.children.map((c) => c.data || findData(c));
     }
     return child.data;
   }
