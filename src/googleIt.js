@@ -39,20 +39,11 @@ export function getSnippet(elem) {
   // recursive function to get "all" the returned data from Google
   function findData(child) {
     if (!child.data) {
-      return child.children.map(function (c) {
-        if (!c.data) {
-          return findData(c)
-        }
-        else {
-          return c.data;
-        }
-      });
+      return child.children.map((c) => (c.data ? c.data : findData(c)));
     }
     return child.data;
   }
-  return elem.children && elem.children.length > 0 ? elem.children.map(function (child) {
-    return Array(findData(child)).join('')
-  }).join('') : '';
+  return elem.children && elem.children.length > 0 ? elem.children.map((child) => new Array(findData(child)).join('')).join('') : '';
 }
 
 export function display(results, disableConsole, onlyUrls) {
