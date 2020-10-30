@@ -87,6 +87,42 @@ describe('getSnippet', () => {
   });
 });
 
+describe('getSnippet (recursive)', () => {
+  it('maps over elem.children and data field, recursively, joined by empty string', () => {
+    const result = getSnippet({
+      children: [{ data: '1' }, { children: [{data: '2' }]}, { data: '3' }],
+    });
+    expect(result).toBe('123');
+  });
+
+  it('returns child.children.map(c => c.data) when child.data does not exist', () => {
+    const result = getSnippet({
+      children: [
+        { children: [{ data: '1' }] },
+        { children: [{ children: [{ data: '2' }]}] },
+        { children: [{ data: '3' }] },
+      ],
+    });
+    expect(result).toBe('123');
+  });
+});
+
+describe('getSnippet (empty)', () => {
+  it('maps over empty elem.children', () => {
+    const result = getSnippet({
+    });
+    expect(result).toBe('');
+  });
+
+  it('returns empty string when children does not exist', () => {
+    const result = getSnippet({
+      children: [
+      ],
+    });
+    expect(result).toBe('');
+  });
+});
+
 describe('display', () => {
   it('calls logIt once for each result (+ once for newline) when 3rd arg (onlyUrls) is true', () => {
     logIt.mockClear();

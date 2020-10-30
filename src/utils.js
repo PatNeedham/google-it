@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 /* eslint-disable no-console */
 
 const fs = require('fs');
