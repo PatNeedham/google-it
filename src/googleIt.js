@@ -43,7 +43,11 @@ export function getSnippet(elem) {
     }
     return child.data;
   }
-  return elem.children && elem.children.length > 0 ? elem.children.map((child) => new Array(findData(child)).join('')).join('') : '';
+
+  // Issue with linter wanting "new" before "Array"
+  // in this case, the casting is legit, we don't want a new array
+  // eslint-disable-next-line unicorn/new-for-builtins
+  return elem.children && elem.children.length > 0 ? elem.children.map((child) => Array(findData(child)).join('')).join('') : '';
 }
 
 export function display(results, disableConsole, onlyUrls) {
