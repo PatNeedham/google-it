@@ -134,6 +134,8 @@ export function getResponse({
   limit,
   userAgent,
   start,
+  includeSites,
+  excludeSites,
 }) {
   // eslint-disable-next-line consistent-return
   return new Promise((resolve, reject) => {
@@ -148,7 +150,7 @@ export function getResponse({
       return resolve({ body: fromString });
     }
     const defaultOptions = getDefaultRequestOptions({
-      limit, query, userAgent, start,
+      limit, query, userAgent, start, includeSites, excludeSites,
     });
     request({ ...defaultOptions, ...options }, (error, response, body) => {
       if (error) {
