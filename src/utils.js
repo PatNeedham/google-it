@@ -9,6 +9,8 @@ const {
   GOOGLE_IT_SNIPPET_SELECTOR,
   GOOGLE_IT_RESULT_STATS_SELECTOR,
   GOOGLE_IT_CURSOR_SELECTOR,
+  GOOGLE_IT_INCLUDE_SITES = '',
+  GOOGLE_IT_EXCLUDE_SITES = '',
 } = process.env;
 
 // NOTE:
@@ -19,12 +21,28 @@ const defaultUserAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0)
 const defaultLimit = 10;
 const defaultStart = 0;
 
+const getFullQuery = (
+  query,
+  includeSites = GOOGLE_IT_INCLUDE_SITES,
+  excludeSites = GOOGLE_IT_EXCLUDE_SITES
+) => {
+  if (includeSites === '' && excludeSites === '') {
+    return query;
+  }
+  if (includeSites !== '') {
+    const addition = includeSites.split(',').map((site) => ` site:${site}`).join(' OR');
+    return query + addition;
+  }
+  const addition = excludeSites.split(',').map((site) => ` -site:${site}`).join(' AND');
+  return query + addition;
+};
+
 const getDefaultRequestOptions = ({
-  limit, query, userAgent, start,
+  limit, query, userAgent, start, includeSites, excludeSites,
 }) => ({
   url: 'https://www.google.com/search',
   qs: {
-    q: query,
+    q: getFullQuery(query, includeSites, excludeSites),
     num: limit || defaultLimit,
     start: start || defaultStart,
   },
@@ -100,4 +118,5 @@ module.exports = {
   logIt,
   saveToFile,
   saveResponse,
+  getFullQuery,
 };

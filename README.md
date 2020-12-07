@@ -36,7 +36,8 @@ Prevent display in the terminal, and save results to a JSON file:
 - [ ] *verbose* - console.log useful statements to show what's currently taking place
 - [ ] *interactive* - once results are returned, show them in an interactive prompt where user can scroll through them
 - [ ] *bold-matching-text* - only takes effect when interactive (-i) flag is set as well, will bold test in results that matched the query
-- [ ] *stackoverflow-github-only* - option to limit results to only these two sites
+- [x] *includeSites* - option to limit results to comma-separated list of sites
+- [x] *excludeSites* - option to exclude results that appear in comma-separated list of sites
 - [x] *open* - opens the first X number of results in the browser after finishing query
 - [x] *disableConsole* - intended to be used with programmatic use, so that the color-coded search results are not displayed in the terminal (via console.log) when not wanted.
 

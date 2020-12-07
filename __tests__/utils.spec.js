@@ -16,6 +16,7 @@ import {
   logIt,
   saveToFile,
   saveResponse,
+  getFullQuery,
 } from '../src/utils';
 
 global.console = {
@@ -113,5 +114,16 @@ describe('saveResponse', () => {
     });
     saveResponse('foo', '/path/to/my/meaningless/response.xml');
     expect(fs.writeFile).toHaveBeenCalled();
+  });
+});
+
+describe('getFullQuery', () => {
+  it('adds "site:a.com OR site:b.com" when includeSites arg is "a.com,b.com"', () => {
+    const result = getFullQuery('something', 'a.com,b.com', '');
+    expect(result.includes('site:a.com OR site:b.com')).toBe(true);
+  });
+  it('adds "-site:a.com AND -site:b.com" when excludeSites arg is "a.com,b.com"', () => {
+    const result = getFullQuery('something', '', 'a.com,b.com');
+    expect(result.includes('-site:a.com AND -site:b.com')).toBe(true);
   });
 });

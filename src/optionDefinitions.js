@@ -33,9 +33,6 @@ const optionDefinitions = [
   // test in results that matched the query
   { name: 'bold-matching-text', alias: 'b', type: Boolean },
 
-  // option to limit results to only these two sites
-  { name: 'stackoverflow-github-only', alias: 'X', type: Boolean },
-
   // option to open the first X number of results directly in browser
   // (only tested on Mac!).
   { name: 'open', alias: 'O', type: Number },
@@ -54,6 +51,14 @@ const optionDefinitions = [
 
   // allows for googleIt result object to include raw network request's response
   { name: 'diagnostics', alias: 'd', type: Boolean },
+
+  // modifies the search query by adding "site:" operator for each comma-separated value,
+  // combined with OR operator when there are multiple values
+  { name: 'includeSites', type: String },
+
+  // modifies the search query by adding "-site:" operator for each comma-separated value,
+  // combined with AND operator when there are multiple values
+  { name: 'excludeSites', type: String },
 ];
 
 module.exports = optionDefinitions;
