@@ -157,8 +157,8 @@ const getTestResults = (filePath) => {
 
 describe('getResults', () => {
   it('returns the correct number of results', () => {
-    const results = getTestResults('./data/speed-of-light-divided-by-2.html');
-    expect(results.length).toBe(10);
+    const results = getTestResults('./data/miter-saws.html');
+    expect(results.length).toBe(9);
   });
 
   it('does not crash when results, result stats section, or cursor section of page are present', () => {

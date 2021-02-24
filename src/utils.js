@@ -51,9 +51,9 @@ const getDefaultRequestOptions = ({
   },
 });
 
-const titleSelector = 'div.tF2Cxc > div:nth-child(1) > a > h3';
-const linkSelector = 'div.tF2Cxc > div:nth-child(1) > a';
-const snippetSelector = 'div.tF2Cxc > div:nth-child(2) > div > span';
+const titleSelector = 'div.ZINbbc > div:nth-child(1) > a > h3';
+const linkSelector = 'div.ZINbbc > div:nth-child(1) > a';
+const snippetSelector = '#main > div > div > div > div:not(.v9i61e) > div.AP7Wnd';
 const resultStatsSelector = '#resultStats';
 const cursorSelector = '#nav > tbody > tr > td.cur';
 

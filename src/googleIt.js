@@ -2,6 +2,7 @@
 /* eslint-disable array-callback-return */
 const request = require('request');
 const fs = require('fs');
+const querystring = require('querystring');
 const cheerio = require('cheerio');
 require('colors');
 const { exec } = require('child_process');
@@ -66,6 +67,16 @@ export function display(results, disableConsole, onlyUrls) {
   });
 }
 
+export const parseGoogleSearchResultUrl = (url) => {
+  if (!url) {
+    return undefined;
+  }
+  if (url.charAt(0) === '/') {
+    return querystring.parse(url).url;
+  }
+  return url;
+};
+
 export function getResults({
   data,
   noDisplay,
@@ -92,7 +103,7 @@ export function getResults({
   $(getLinkSelector(linkSelector)).map((index, elem) => {
     if (index < results.length) {
       results[index] = Object.assign(results[index], {
-        link: elem.attribs.href,
+        link: parseGoogleSearchResultUrl(elem.attribs.href),
       });
     }
   });
