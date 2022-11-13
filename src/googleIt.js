@@ -17,6 +17,7 @@ const {
   logIt,
   saveToFile,
   saveResponse,
+  titlefinder,
 } = require('./utils');
 
 export function errorTryingToOpen(error, stdout, stderr) {
@@ -91,10 +92,10 @@ export function getResults({
   const $ = cheerio.load(data);
   let results = [];
 
-  const titles = $(getTitleSelector(titleSelector)).contents();
+  const titles = $(getTitleSelector(titleSelector)).find(titlefinder);
   titles.each((index, elem) => {
-    if (elem.data) {
-      results.push({ title: elem.data });
+    if (elem.children[0].data) {
+      results.push({ title: elem.children[0].data });
     } else {
       results.push({ title: elem.children[0].data });
     }

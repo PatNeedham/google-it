@@ -51,7 +51,8 @@ const getDefaultRequestOptions = ({
   },
 });
 
-var titleSelector = 'div.fP1Qef > div:nth-child(1) > a > h3';
+var titleSelector = 'div.Gx5Zad.fP1Qef.xpd.EtOod.pkphOe';
+var titlefinder = 'div.BNeawe.vvjwJb.AP7Wnd';
 var linkSelector = 'div.fP1Qef > div:nth-child(1) > a';
 const snippetSelector = '#main > div > div > div > div:not(.v9i61e) > div.AP7Wnd';
 const resultStatsSelector = '#resultStats';
@@ -109,6 +110,7 @@ module.exports = {
   getTitleSelector,
   getLinkSelector,
   titleSelector,
+  titlefinder,
   linkSelector,
   snippetSelector,
   getSnippetSelector,
