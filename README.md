@@ -58,7 +58,7 @@ googleIt({'query': 'covfefe irony'}).then(results => {
 const options = {
   'proxy': 'http://localhost:8118'
 };
-googleIt({options, 'query': 'covfefe irony'}).then(results => {
+googleIt({...options, 'query': 'covfefe irony'}).then(results => {
   // access to results object here
 }).catch(e => {
   // any possible errors that might have occurred (like no Internet connection)
