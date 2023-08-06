@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const {
   GOOGLE_IT_TITLE_SELECTOR,
+  GOOGLE_IT_TITLE_FINDER,
   GOOGLE_IT_LINK_SELECTOR,
   GOOGLE_IT_SNIPPET_SELECTOR,
   GOOGLE_IT_RESULT_STATS_SELECTOR,
@@ -62,6 +63,10 @@ const getTitleSelector = (passedValue) => (
   passedValue || GOOGLE_IT_TITLE_SELECTOR || titleSelector
 );
 
+const getTitleFinder = (passedValue) => (
+  passedValue || GOOGLE_IT_TITLE_FINDER || titlefinder
+);
+
 const getLinkSelector = (passedValue) => (
   passedValue || GOOGLE_IT_LINK_SELECTOR || linkSelector
 );
@@ -108,6 +113,7 @@ module.exports = {
   defaultStart,
   getDefaultRequestOptions,
   getTitleSelector,
+  getTitleFinder,
   getLinkSelector,
   titleSelector,
   titlefinder,
