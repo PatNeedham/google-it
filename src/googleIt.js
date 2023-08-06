@@ -10,6 +10,7 @@ const { exec } = require('child_process');
 const {
   getDefaultRequestOptions,
   getTitleSelector,
+  getTitleFinder,
   getLinkSelector,
   getSnippetSelector,
   getResultStatsSelector,
@@ -17,7 +18,6 @@ const {
   logIt,
   saveToFile,
   saveResponse,
-  titlefinder,
 } = require('./utils');
 
 export function errorTryingToOpen(error, stdout, stderr) {
@@ -84,6 +84,7 @@ export function getResults({
   disableConsole,
   onlyUrls,
   titleSelector,
+  titleFinder,
   linkSelector,
   snippetSelector,
   resultStatsSelector,
@@ -92,7 +93,7 @@ export function getResults({
   const $ = cheerio.load(data);
   let results = [];
 
-  const titles = $(getTitleSelector(titleSelector)).find(titlefinder);
+  const titles = $(getTitleSelector(titleSelector)).find(getTitleFinder(titleFinder));
   titles.each((index, elem) => {
     if (elem.children[0].data) {
       results.push({ title: elem.children[0].data });
@@ -180,6 +181,7 @@ function googleIt(config) {
     open,
     returnHtmlBody,
     titleSelector,
+    titleFinder,
     linkSelector,
     snippetSelector,
     resultStatsSelector,
@@ -195,6 +197,7 @@ function googleIt(config) {
         disableConsole: config.disableConsole,
         onlyUrls: config['only-urls'],
         titleSelector,
+        titleFinder,
         linkSelector,
         snippetSelector,
         resultStatsSelector,
